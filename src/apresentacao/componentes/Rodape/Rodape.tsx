@@ -1,24 +1,22 @@
-import { Cross } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import estilos from './Rodape.module.css'
+import { Cross } from "lucide-react";
+import { Link } from "react-router-dom";
+import estilos from "./Rodape.module.css";
 
 const linksNavegacao = [
-  { rotulo: 'Início', ancora: '#' },
-  { rotulo: 'Sobre', ancora: '#sobre' },
-  { rotulo: 'Cultos', ancora: '#cultos' },
-  { rotulo: 'Ministérios', ancora: '#ministerios' },
-  { rotulo: 'Agenda', ancora: '#agenda' },
-  { rotulo: 'Contato', ancora: '#contato' },
-]
-
+  { rotulo: "Início", ancora: "#" },
+  { rotulo: "Sobre", ancora: "#sobre" },
+  { rotulo: "Cultos", ancora: "#cultos" },
+  { rotulo: "Ministérios", ancora: "#ministerios" },
+  { rotulo: "Agenda", ancora: "#agenda" },
+  { rotulo: "Contato", ancora: "#contato" },
+];
 const linksRedes = [
-  { rotulo: 'Instagram', link: 'https://instagram.com/comepe' },
-  { rotulo: 'YouTube', link: 'https://youtube.com/@comepe' },
-  { rotulo: 'WhatsApp', link: 'https://wa.me/5511999999999' },
-]
+  { rotulo: "Instagram", link: "https://www.instagram.com/comepe.m12/" },
+  { rotulo: "YouTube", link: "https://www.youtube.com/@igrejacomepe" },
+];
 
 export function Rodape() {
-  const ano = new Date().getFullYear()
+  const ano = new Date().getFullYear();
 
   return (
     <footer className={estilos.rodape}>
@@ -30,7 +28,9 @@ export function Rodape() {
             </div>
             <div className={estilos.logoTexto}>
               <span className={estilos.logoNome}>COMEPE</span>
-              <span className={estilos.logoSubtitulo}>Suzano — SP</span>
+              <span className={estilos.logoSubtitulo}>
+                Av. Antônio Marques Figueira, 493 — Suzano, SP
+              </span>
             </div>
           </Link>
 
@@ -49,7 +49,11 @@ export function Rodape() {
           <p className={estilos.colTitulo}>Navegação</p>
           <div className={estilos.colLinks}>
             {linksNavegacao.map((item) => (
-              <a key={item.ancora} href={item.ancora} className={estilos.colLink}>
+              <a
+                key={item.ancora}
+                href={item.ancora}
+                className={estilos.colLink}
+              >
                 {item.rotulo}
               </a>
             ))}
@@ -60,7 +64,7 @@ export function Rodape() {
           <p className={estilos.colTitulo}>Redes Sociais</p>
           <div className={estilos.colLinks}>
             {linksRedes.map((item) => (
-              <a 
+              <a
                 key={item.rotulo}
                 href={item.link}
                 target="_blank"
@@ -78,10 +82,7 @@ export function Rodape() {
         <p className={estilos.direitos}>
           © {ano} COMEPE Suzano. Todos os direitos reservados.
         </p>
-        <p className={estilos.creditosDev}>
-          Desenvolvido por <span className={estilos.creditosDestaque}>Samuel</span>
-        </p>
       </div>
     </footer>
-  )
+  );
 }

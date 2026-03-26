@@ -1,24 +1,13 @@
-import { MessageCircle, MapPin, Play, Camera } from "lucide-react";
+import { MapPin, Play, Camera } from "lucide-react";
 import estilos from "./SecaoContato.module.css";
 
 const redesSociais = [
-  {
-    id: "whatsapp",
-    titulo: "WhatsApp",
-    texto:
-      "Entre em contato direto com a nossa equipe para tirar dúvidas e receber informações.",
-    link: "https://wa.me/5511999999999",
-    rotulo: "Enviar mensagem",
-    estiloCard: estilos.cardWhatsApp,
-    estiloIcone: estilos.iconeWhatsApp,
-    icone: <MessageCircle size={28} color="#25d366" />,
-  },
   {
     id: "instagram",
     titulo: "Instagram",
     texto:
       "Acompanhe nossa programação, eventos e momentos especiais da comunidade.",
-    link: "https://instagram.com/comepe",
+    link: "https://www.instagram.com/comepe.m12/",
     rotulo: "Seguir no Instagram",
     estiloCard: estilos.cardInstagram,
     estiloIcone: estilos.iconeInstagram,
@@ -28,7 +17,7 @@ const redesSociais = [
     id: "youtube",
     titulo: "YouTube",
     texto: "Assista aos cultos, pregações e eventos especiais no nosso canal.",
-    link: "https://youtube.com/@comepe",
+    link: "https://www.youtube.com/@igrejacomepe",
     rotulo: "Assistir no YouTube",
     estiloCard: estilos.cardYoutube,
     estiloIcone: estilos.iconeYoutube,
@@ -81,8 +70,16 @@ export function SecaoContato() {
           <div className={estilos.enderecoTexto}>
             <span className={estilos.enderecoRotulo}>Nossa localização</span>
             <span className={estilos.enderecoValor}>
-              Suzano — São Paulo, SP
+              Av. Antônio Marques Figueira, 493 — Suzano, SP
             </span>
+            <a
+              href="https://maps.google.com/?q=Av.+Antônio+Marques+Figueira,+493,+Suzano,+SP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={estilos.enderecoLink}
+            >
+              Ver no Google Maps →
+            </a>
           </div>
         </div>
       </div>
