@@ -1,0 +1,186 @@
+.rodape {
+  background: var(--cor-azul-profundo);
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.rodape::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--cor-dourado),
+    var(--cor-azul-claro),
+    var(--cor-dourado)
+  );
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.colLogo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.logoIcone {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(
+    135deg,
+    var(--cor-dourado),
+    var(--cor-dourado-claro)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoTexto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logoNome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--cor-branco);
+  letter-spacing: 0.04em;
+}
+
+.logoSubtitulo {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--cor-dourado);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.descricao {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.8;
+  max-width: 320px;
+}
+
+.versiculo {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.versiculoRef {
+  color: var(--cor-dourado);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.colTitulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+  margin-bottom: 1.25rem;
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.colLink {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: var(--transicao);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.colLink:hover {
+  color: var(--cor-dourado);
+}
+
+.rodapeBase {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.direitos {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.creditosDev {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.creditosDestaque {
+  color: var(--cor-dourado);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .colLogo {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .rodape {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .colLogo {
+    grid-column: auto;
+  }
+
+  .rodapeBase {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,83 @@
+.pagina {
+  min-height: 100vh;
+  background: var(--cor-azul-profundo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.conteudo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 500px;
+}
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 100px;
+  padding: 0.4rem 1.2rem;
+}
+
+.etiquetaTexto {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-dourado-claro);
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1;
+}
+
+.descricao {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+.botao {
+  background: linear-gradient(
+    135deg,
+    var(--cor-dourado),
+    var(--cor-dourado-claro)
+  );
+  color: var(--cor-azul-profundo);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
+  text-decoration: none;
+}
+
+.botao:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.55);
+}
+
+.botaoVoltar {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.botaoVoltar:hover {
+  color: rgba(255, 255, 255, 0.8);
+}

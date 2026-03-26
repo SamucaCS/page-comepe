@@ -1,0 +1,242 @@
+.secao {
+  padding: 7rem 2rem;
+  background: var(--cor-azul-profundo);
+  position: relative;
+  overflow: hidden;
+}
+
+.secao::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(74, 144, 217, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.rotulo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.linha {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--cor-dourado),
+    var(--cor-dourado-claro)
+  );
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.cartao {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--raio-medio);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: var(--transicao);
+  position: relative;
+  overflow: hidden;
+}
+
+.cartao:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-4px);
+}
+
+.cartaoDisponivel {
+  border-color: rgba(26, 122, 74, 0.5);
+  background: rgba(26, 122, 74, 0.08);
+}
+
+.cartaoDisponivel:hover {
+  background: rgba(26, 122, 74, 0.12);
+}
+
+.cartaoEsgotado {
+  opacity: 0.45;
+}
+
+.cartaoProximo {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.06);
+}
+
+.cabecalhoCartao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mes {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+}
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+}
+
+.badgeDisponivel {
+  background: rgba(26, 122, 74, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.badgeEsgotado {
+  background: rgba(138, 10, 10, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.badgeProximo {
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--cor-dourado-claro);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.valor {
+  font-family: var(--fonte-titulo);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1;
+}
+
+.valorPrefixo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  vertical-align: super;
+  margin-right: 2px;
+}
+
+.rodapeCartao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quantidade {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.quantidadeDestaque {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.painelObservacoes {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--raio-medio);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.observacaoTitulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+  margin-bottom: 0.25rem;
+}
+
+.observacaoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.observacaoPonto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cor-dourado);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 600px) {
+  .secao {
+    padding: 5rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
