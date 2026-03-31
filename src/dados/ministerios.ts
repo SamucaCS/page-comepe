@@ -4,6 +4,12 @@ export interface Membro {
   funcao: string;
 }
 
+export interface Equipe {
+  id: string;
+  nome: string;
+  membros: Membro[];
+}
+
 export interface Ministerio {
   id: string;
   nome: string;
@@ -14,6 +20,7 @@ export interface Ministerio {
   slug: string;
   responsavel: Membro;
   membros: Membro[];
+  equipes?: Equipe[];
 }
 
 export const ministerios: Ministerio[] = [
@@ -23,15 +30,84 @@ export const ministerios: Ministerio[] = [
     descricao:
       "Ministério responsável pela adoração e louvor nos cultos, conduzindo a congregação à presença de Deus através da música.",
     descricaoCompleta:
-      "O Ministério de Louvor é o coração da adoração na COMEPE. Através da música e da adoração genuína, conduzimos a congregação à presença de Deus em cada culto. Nosso compromisso é com a excelência musical e com a espiritualidade, buscando sempre ministrar com unção e preparo.",
+      "O Ministério de Louvor é o coração da adoração na COMEPE. Através da música e da adoração genuína, conduzimos a congregação à presença de Deus em cada culto. Nosso compromisso é com a excelência musical e com a espiritualidade, buscando sempre ministrar com unção e preparo. Confira abaixo as equipes de Abril a Julho.",
     icone: "Music",
     publico: "Toda a congregação",
     slug: "louvor",
-    responsavel: { id: "r1", nome: "A definir", funcao: "Líder de Louvor" },
-    membros: [
-      { id: "m1", nome: "Membro 1", funcao: "Vocal" },
-      { id: "m2", nome: "Membro 2", funcao: "Violão" },
-      { id: "m3", nome: "Membro 3", funcao: "Teclado" },
+    responsavel: { id: "r1", nome: "Dâmarys", funcao: "Líder de Louvor" },
+    membros: [],
+    equipes: [
+      {
+        id: "equipe-a",
+        nome: "Equipe A",
+        membros: [
+          { id: "a1", nome: "Keyla", funcao: "Dirigente" },
+          { id: "a2", nome: "Coral", funcao: "Back Vocal" },
+          { id: "a3", nome: "Dâmarys", funcao: "Violão" },
+          { id: "a4", nome: "Charles", funcao: "Baixo" },
+          { id: "a5", nome: "Tiago", funcao: "Bateria" },
+          { id: "a6", nome: "Apa. Berenice", funcao: "Teclado" },
+          { id: "a7", nome: "Wilsinho", funcao: "Guitarra" },
+        ],
+      },
+      {
+        id: "equipe-b",
+        nome: "Equipe B",
+        membros: [
+          { id: "b1", nome: "Dâmarys", funcao: "Dirigente e Violão" },
+          { id: "b2", nome: "Denise", funcao: "Back Vocal" },
+          { id: "b3", nome: "Ana", funcao: "Back Vocal" },
+          { id: "b4", nome: "Alexandre", funcao: "Back Vocal" },
+          { id: "b5", nome: "Dani", funcao: "Baixo" },
+          { id: "b6", nome: "Tiago", funcao: "Bateria" },
+          { id: "b7", nome: "Apa. Berenice", funcao: "Teclado" },
+          { id: "b8", nome: "Wilsinho", funcao: "Guitarra" },
+        ],
+      },
+      {
+        id: "equipe-c",
+        nome: "Equipe C",
+        membros: [
+          { id: "c1", nome: "Fernando", funcao: "Dirigente e Violão" },
+          { id: "c2", nome: "Alexandre", funcao: "Violão 2" },
+          { id: "c3", nome: "Carol", funcao: "Back Vocal" },
+          { id: "c4", nome: "Silmara", funcao: "Back Vocal" },
+          { id: "c5", nome: "André", funcao: "Back Vocal" },
+          { id: "c6", nome: "Dani", funcao: "Baixo" },
+          { id: "c7", nome: "Samuel", funcao: "Bateria" },
+          { id: "c8", nome: "Cido", funcao: "Teclado" },
+          { id: "c9", nome: "Wilsinho", funcao: "Guitarra" },
+        ],
+      },
+      {
+        id: "equipe-d",
+        nome: "Equipe D",
+        membros: [
+          { id: "d1", nome: "Shirleyne", funcao: "Dirigente" },
+          { id: "d2", nome: "Tamires", funcao: "Back Vocal" },
+          { id: "d3", nome: "Nilma", funcao: "Back Vocal" },
+          { id: "d4", nome: "Fernando", funcao: "Back Vocal" },
+          { id: "d5", nome: "André/Alexandre", funcao: "Violão" },
+          { id: "d6", nome: "Charles", funcao: "Baixo" },
+          { id: "d7", nome: "Samuel", funcao: "Bateria" },
+          { id: "d8", nome: "Cido", funcao: "Teclado" },
+          { id: "d9", nome: "Wilsinho", funcao: "Guitarra" },
+        ],
+      },
+      {
+        id: "equipe-e",
+        nome: "Equipe E",
+        membros: [
+          { id: "e1", nome: "Luiz", funcao: "Dirigente e Violão" },
+          { id: "e2", nome: "Shirleyne", funcao: "Back Vocal" },
+          { id: "e3", nome: "Sandra", funcao: "Back Vocal" },
+          { id: "e4", nome: "Danilo", funcao: "Back Vocal" },
+          { id: "e5", nome: "Dani", funcao: "Baixo" },
+          { id: "e6", nome: "Samuel", funcao: "Bateria" },
+          { id: "e7", nome: "Apa. Berenice", funcao: "Teclado" },
+          { id: "e8", nome: "Wilsinho", funcao: "Guitarra" },
+        ],
+      },
     ],
   },
   {

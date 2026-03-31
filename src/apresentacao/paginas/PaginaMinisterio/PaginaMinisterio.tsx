@@ -24,7 +24,9 @@ const mapaIcones: Record<string, JSX.Element> = {
 };
 
 function iniciais(nome: string) {
-  return nome === "A definir" ? "?" : nome.charAt(0).toUpperCase();
+  if (nome === "A definir") return "?";
+  const partes = nome.trim().split(" ");
+  return partes[0].charAt(0).toUpperCase();
 }
 
 export function PaginaMinisterio() {
@@ -110,28 +112,58 @@ export function PaginaMinisterio() {
             </div>
           </div>
 
-          <div>
-            <div
-              className={estilos.secaoTexto}
-              style={{ marginBottom: "1.25rem" }}
-            >
-              <span className={estilos.secaoTitulo}>Equipe</span>
-              <div className={estilos.linha} />
-            </div>
-            <div className={estilos.gridMembros}>
-              {ministerio.membros.map((membro) => (
-                <div key={membro.id} className={estilos.cardMembro}>
-                  <div className={estilos.membroAvatar}>
-                    {iniciais(membro.nome)}
+          {ministerio.equipes && ministerio.equipes.length > 0 ? (
+            <div className={estilos.secaoEquipes}>
+              {ministerio.equipes.map((equipe) => (
+                <div key={equipe.id} className={estilos.blocoEquipe}>
+                  <div className={estilos.equipeHeader}>
+                    <h3 className={estilos.equipeNome}>{equipe.nome}</h3>
+                    <span className={estilos.equipeTotal}>
+                      {equipe.membros.length} membros
+                    </span>
                   </div>
-                  <div className={estilos.membroInfo}>
-                    <p className={estilos.membroNome}>{membro.nome}</p>
-                    <p className={estilos.membroFuncao}>{membro.funcao}</p>
+                  <div className={estilos.gridMembros}>
+                    {equipe.membros.map((membro) => (
+                      <div key={membro.id} className={estilos.cardMembro}>
+                        <div className={estilos.membroAvatar}>
+                          {iniciais(membro.nome)}
+                        </div>
+                        <div className={estilos.membroInfo}>
+                          <p className={estilos.membroNome}>{membro.nome}</p>
+                          <p className={estilos.membroFuncao}>
+                            {membro.funcao}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
             </div>
-          </div>
+          ) : (
+            <div>
+              <div
+                className={estilos.secaoTexto}
+                style={{ marginBottom: "1.25rem" }}
+              >
+                <span className={estilos.secaoTitulo}>Equipe</span>
+                <div className={estilos.linha} />
+              </div>
+              <div className={estilos.gridMembros}>
+                {ministerio.membros.map((membro) => (
+                  <div key={membro.id} className={estilos.cardMembro}>
+                    <div className={estilos.membroAvatar}>
+                      {iniciais(membro.nome)}
+                    </div>
+                    <div className={estilos.membroInfo}>
+                      <p className={estilos.membroNome}>{membro.nome}</p>
+                      <p className={estilos.membroFuncao}>{membro.funcao}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
