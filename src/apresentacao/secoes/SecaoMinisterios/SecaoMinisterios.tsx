@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Music, Video, Heart, Star, Users, Handshake } from "lucide-react";
 import { ministerios } from "../../../dados/ministerios";
+import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoMinisterios.module.css";
 import type { JSX } from "react";
 
@@ -14,16 +15,25 @@ const mapaIcones: Record<string, JSX.Element> = {
 };
 
 export function SecaoMinisterios() {
+  const { ref: refCabecalho, visivel: visivelCabecalho } = useAnimacaoScroll();
+  const { ref: refGrid, visivel: visivelGrid } = useAnimacaoScroll();
+
   return (
     <section id="ministerios" className={estilos.secao}>
       <div className={estilos.inner}>
-        <div className={estilos.cabecalhoSecao}>
+        <div
+          ref={refCabecalho as React.RefObject<HTMLDivElement>}
+          className={`${estilos.cabecalhoSecao} animavel ${visivelCabecalho ? "visivel" : ""}`}
+        >
           <span className={estilos.rotulo}>Áreas de Atuação</span>
           <h2 className={estilos.titulo}>Nossos Ministérios</h2>
           <div className={estilos.linha} />
         </div>
 
-        <div className={estilos.grid}>
+        <div
+          ref={refGrid as React.RefObject<HTMLDivElement>}
+          className={`${estilos.grid} animavel atraso-2 ${visivelGrid ? "visivel" : ""}`}
+        >
           {ministerios.map((ministerio) => (
             <Link
               key={ministerio.id}

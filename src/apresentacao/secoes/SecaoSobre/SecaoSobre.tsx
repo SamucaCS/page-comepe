@@ -1,4 +1,5 @@
 import { Target, Eye, Heart } from "lucide-react";
+import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoSobre.module.css";
 
 const pilares = [
@@ -26,10 +27,16 @@ const pilares = [
 ];
 
 export function SecaoSobre() {
+  const { ref: refEsquerda, visivel: visivelEsquerda } = useAnimacaoScroll();
+  const { ref: refDireita, visivel: visivelDireita } = useAnimacaoScroll();
+
   return (
     <section id="sobre" className={estilos.secao}>
       <div className={estilos.inner}>
-        <div className={estilos.colEsquerda}>
+        <div
+          ref={refEsquerda as React.RefObject<HTMLDivElement>}
+          className={`${estilos.colEsquerda} animavel-esquerda ${visivelEsquerda ? "visivel" : ""}`}
+        >
           <span className={estilos.rotulo}>Quem somos</span>
           <h2 className={estilos.titulo}>
             Uma igreja que
@@ -48,7 +55,6 @@ export function SecaoSobre() {
             comunhão verdadeira. Independente de onde você veio ou onde está, há
             um lugar para você na COMEPE.
           </p>
-
           <div className={estilos.versiculo}>
             <p className={estilos.versiculoTexto}>
               Porque Deus amou o mundo de tal maneira que deu o seu Filho
@@ -59,7 +65,10 @@ export function SecaoSobre() {
           </div>
         </div>
 
-        <div className={estilos.colDireita}>
+        <div
+          ref={refDireita as React.RefObject<HTMLDivElement>}
+          className={`${estilos.colDireita} animavel-direita ${visivelDireita ? "visivel" : ""}`}
+        >
           {pilares.map((pilar) => (
             <div key={pilar.id} className={estilos.card}>
               <div className={estilos.cardIcone}>{pilar.icone}</div>

@@ -1,0 +1,213 @@
+.pagina {
+  min-height: 100vh;
+  background: linear-gradient(
+    160deg,
+    var(--cor-azul-profundo) 0%,
+    var(--cor-azul-medio) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.fundoDecorado {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.circulo1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  top: -200px;
+  right: -150px;
+  animation: pulsar 8s ease-in-out infinite;
+}
+
+.circulo2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(74, 144, 217, 0.1);
+  bottom: -100px;
+  left: -100px;
+  animation: pulsar 10s ease-in-out infinite reverse;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.7;
+  }
+}
+
+.conteudo {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: surgir 0.8s ease-out both;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iconeWrapper {
+  width: 80px;
+  height: 80px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.numero {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(6rem, 20vw, 12rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1.1;
+}
+
+.tituloDestaque {
+  color: var(--cor-dourado);
+}
+
+.descricao {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 420px;
+  line-height: 1.8;
+}
+
+.versiculo {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--raio-medio);
+  padding: 1.5rem 2rem;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.versiculoTexto {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.versiculoRef {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.botaoPrimario {
+  background: linear-gradient(
+    135deg,
+    var(--cor-dourado),
+    var(--cor-dourado-claro)
+  );
+  color: var(--cor-azul-profundo);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.botaoPrimario:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.55);
+}
+
+.botaoSecundario {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: var(--transicao);
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--raio-pequeno);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.botaoSecundario:hover {
+  color: var(--cor-branco);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 480px) {
+  .acoes {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .botaoPrimario,
+  .botaoSecundario {
+    width: 100%;
+    text-align: center;
+  }
+}

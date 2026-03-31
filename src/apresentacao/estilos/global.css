@@ -62,3 +62,61 @@ button {
   background: none;
   font-family: var(--fonte-corpo);
 }
+
+.animavel {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animavel.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animavel-esquerda {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animavel-esquerda.visivel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animavel-direita {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animavel-direita.visivel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.atraso-1 {
+  transition-delay: 0.1s;
+}
+.atraso-2 {
+  transition-delay: 0.2s;
+}
+.atraso-3 {
+  transition-delay: 0.3s;
+}
+.atraso-4 {
+  transition-delay: 0.4s;
+}
+.atraso-5 {
+  transition-delay: 0.5s;
+}
+.atraso-6 {
+  transition-delay: 0.6s;
+}

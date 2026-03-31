@@ -1,4 +1,5 @@
 import { MapPin, Play, Camera } from "lucide-react";
+import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoContato.module.css";
 
 const redesSociais = [
@@ -26,6 +27,10 @@ const redesSociais = [
 ];
 
 export function SecaoContato() {
+  const { ref: refCabecalho, visivel: visivelCabecalho } = useAnimacaoScroll();
+  const { ref: refGrid, visivel: visivelGrid } = useAnimacaoScroll();
+  const { ref: refEndereco, visivel: visivelEndereco } = useAnimacaoScroll();
+
   return (
     <section id="contato" className={estilos.secao}>
       <div className={estilos.fundoDecorado}>
@@ -34,7 +39,10 @@ export function SecaoContato() {
       </div>
 
       <div className={estilos.inner}>
-        <div className={estilos.cabecalhoSecao}>
+        <div
+          ref={refCabecalho as React.RefObject<HTMLDivElement>}
+          className={`${estilos.cabecalhoSecao} animavel ${visivelCabecalho ? "visivel" : ""}`}
+        >
           <span className={estilos.rotulo}>Fale Conosco</span>
           <h2 className={estilos.titulo}>Entre em Contato</h2>
           <div className={estilos.linha} />
@@ -44,7 +52,10 @@ export function SecaoContato() {
           </p>
         </div>
 
-        <div className={estilos.grid}>
+        <div
+          ref={refGrid as React.RefObject<HTMLDivElement>}
+          className={`${estilos.grid} animavel atraso-2 ${visivelGrid ? "visivel" : ""}`}
+        >
           {redesSociais.map((rede) => (
             <a
               key={rede.id}
@@ -63,17 +74,20 @@ export function SecaoContato() {
           ))}
         </div>
 
-        <div className={estilos.painelEndereco}>
+        <div
+          ref={refEndereco as React.RefObject<HTMLDivElement>}
+          className={`${estilos.painelEndereco} animavel atraso-3 ${visivelEndereco ? "visivel" : ""}`}
+        >
           <div className={estilos.enderecoIcone}>
             <MapPin size={22} color="#0a1f44" />
           </div>
           <div className={estilos.enderecoTexto}>
             <span className={estilos.enderecoRotulo}>Nossa localização</span>
             <span className={estilos.enderecoValor}>
-              Av. Antônio Marques Figueira, 493 — Suzano, SP
+              Av. Antônio Marques Figueira, 453 — Suzano, SP
             </span>
             <a
-              href="https://maps.google.com/?q=Av.+Antônio+Marques+Figueira,+493,+Suzano,+SP"
+              href="https://maps.google.com/?q=Av.+Antônio+Marques+Figueira,+453,+Suzano,+SP"
               target="_blank"
               rel="noopener noreferrer"
               className={estilos.enderecoLink}

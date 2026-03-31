@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sun, Users, Heart } from "lucide-react";
 import { cultos } from "../../../dados/cultos";
+import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoCultos.module.css";
 import type { JSX } from "react";
 
@@ -11,6 +12,9 @@ const mapaIcones: Record<string, JSX.Element> = {
 };
 
 export function SecaoCultos() {
+  const { ref: refCabecalho, visivel: visivelCabecalho } = useAnimacaoScroll();
+  const { ref: refGrid, visivel: visivelGrid } = useAnimacaoScroll();
+
   return (
     <section id="cultos" className={estilos.secao}>
       <div className={estilos.fundoDecorado}>
@@ -19,13 +23,19 @@ export function SecaoCultos() {
       </div>
 
       <div className={estilos.inner}>
-        <div className={estilos.cabecalhoSecao}>
+        <div
+          ref={refCabecalho as React.RefObject<HTMLDivElement>}
+          className={`${estilos.cabecalhoSecao} animavel ${visivelCabecalho ? "visivel" : ""}`}
+        >
           <span className={estilos.rotulo}>Programação</span>
           <h2 className={estilos.titulo}>Cultos e Horários</h2>
           <div className={estilos.linha} />
         </div>
 
-        <div className={estilos.grid}>
+        <div
+          ref={refGrid as React.RefObject<HTMLDivElement>}
+          className={`${estilos.grid} animavel atraso-2 ${visivelGrid ? "visivel" : ""}`}
+        >
           {cultos.map((culto) => {
             const ehDestaque = culto.id === "culto-domingo";
             return (

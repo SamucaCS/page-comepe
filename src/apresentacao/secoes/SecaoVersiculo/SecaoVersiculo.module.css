@@ -1,0 +1,156 @@
+.secao {
+  padding: 5rem 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--cor-azul-profundo),
+    var(--cor-azul-medio)
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.fundoDecorado {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.linhaHorizontal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.2),
+    transparent
+  );
+}
+
+.bolha {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 76, 0.06) 0%,
+    transparent 70%
+  );
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.aspas {
+  font-family: var(--fonte-titulo);
+  font-size: 5rem;
+  color: rgba(201, 168, 76, 0.25);
+  line-height: 1;
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.texto {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  transition: opacity 0.5s ease;
+}
+
+.texto.trocando {
+  opacity: 0;
+}
+
+.referencia {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.referenciaLinha {
+  width: 32px;
+  height: 2px;
+  background: var(--cor-dourado);
+  border-radius: 2px;
+}
+
+.referenciaTexto {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: var(--transicao);
+  padding: 0;
+}
+
+.pontoAtivo {
+  background: var(--cor-dourado);
+  transform: scale(1.25);
+}
+
+.botoes {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.botao {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transicao);
+  font-size: 1rem;
+}
+
+.botao:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: rgba(201, 168, 76, 0.35);
+  color: var(--cor-dourado);
+}
+
+@media (max-width: 600px) {
+  .secao {
+    padding: 4rem 1.5rem;
+  }
+}
