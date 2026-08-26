@@ -1,4 +1,11 @@
 .pagina {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 404 */
+.paginaErro {
   min-height: 100vh;
   background: var(--cor-azul-profundo);
   display: flex;
@@ -7,7 +14,7 @@
   padding: 2rem;
 }
 
-.conteudo {
+.erroConteudo {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -19,7 +26,6 @@
 .etiqueta {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   background: rgba(201, 168, 76, 0.12);
   border: 1px solid rgba(201, 168, 76, 0.3);
   border-radius: 100px;
@@ -34,7 +40,7 @@
   color: var(--cor-dourado-claro);
 }
 
-.titulo {
+.erroTitulo {
   font-family: var(--fonte-titulo);
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 900;
@@ -42,18 +48,14 @@
   line-height: 1;
 }
 
-.descricao {
+.erroDescricao {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
 }
 
 .botao {
-  background: linear-gradient(
-    135deg,
-    var(--cor-dourado),
-    var(--cor-dourado-claro)
-  );
+  background: linear-gradient(135deg, var(--cor-dourado), var(--cor-dourado-claro));
   color: var(--cor-azul-profundo);
   font-size: 0.85rem;
   font-weight: 800;
@@ -71,13 +73,380 @@
   box-shadow: 0 16px 48px rgba(201, 168, 76, 0.55);
 }
 
+/* Hero */
+.hero {
+  background: linear-gradient(160deg, var(--cor-azul-profundo) 0%, var(--cor-azul-medio) 100%);
+  padding: 9rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroDecorado {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heroCirculo1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  top: -150px;
+  right: -100px;
+}
+
+.heroCirculo2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(74, 144, 217, 0.1);
+  bottom: -80px;
+  left: -80px;
+}
+
+.heroInner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
 .botaoVoltar {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: var(--transicao);
+  margin-bottom: 2rem;
 }
 
 .botaoVoltar:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--cor-dourado);
+}
+
+.badgeDestaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.badgePonto {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cor-dourado);
+  animation: pulsar 1.5s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.badgeTexto {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-dourado-claro);
+}
+
+.rotulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.painelInfo {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoTexto {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.descricao {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+/* Conteúdo */
+.conteudo {
+  background: var(--cor-branco-suave);
+  flex: 1;
+  padding: 5rem 2rem;
+}
+
+.conteudoInner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.secaoTituloWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.secaoTitulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+}
+
+.linha {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cor-dourado), var(--cor-dourado-claro));
+  border-radius: 2px;
+}
+
+/* Preço único */
+.cardPreco {
+  background: linear-gradient(135deg, var(--cor-azul-profundo), var(--cor-azul-medio));
+  border-radius: var(--raio-medio);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.precoRotulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+}
+
+.precoValor {
+  font-family: var(--fonte-titulo);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1;
+}
+
+/* Lotes */
+.gridLotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.cardLote {
+  background: var(--cor-branco);
+  border: 1px solid rgba(10, 31, 68, 0.07);
+  border-radius: var(--raio-medio);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: var(--transicao);
+}
+
+.cardLote:hover {
+  box-shadow: var(--sombra-suave);
+  transform: translateY(-3px);
+}
+
+.cardLoteEsgotado {
+  opacity: 0.5;
+}
+
+.loteMes {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+}
+
+.loteValor {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--cor-azul-profundo);
+}
+
+.loteStatus {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  width: fit-content;
+}
+
+.loteStatusDisponivel {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.loteStatusEsgotado {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+.loteStatusProximo {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+/* Pagamento PIX */
+.cardPix {
+  background: var(--cor-branco);
+  border: 1px solid rgba(10, 31, 68, 0.07);
+  border-radius: var(--raio-medio);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pixTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pixBanco {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--cor-azul-profundo);
+}
+
+.pixRotulo {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+}
+
+.pixChave {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cor-azul-profundo);
+  letter-spacing: 0.05em;
+  font-family: monospace;
+}
+
+.botaoCopiar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--cor-azul-profundo), var(--cor-azul-medio));
+  color: var(--cor-branco);
+  border: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao);
+  width: fit-content;
+}
+
+.botaoCopiar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-suave);
+}
+
+.botaoCopiarCopiado {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+
+/* Observações */
+.listaObs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.itemObs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.6;
+}
+
+.itemObsPonto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cor-dourado);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  .conteudo {
+    padding: 3rem 1.5rem;
+  }
+
+  .painelInfo {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .precoValor {
+    font-size: 2.25rem;
+  }
 }

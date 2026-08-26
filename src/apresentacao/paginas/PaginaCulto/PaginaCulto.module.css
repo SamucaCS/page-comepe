@@ -15,6 +15,59 @@
   overflow: hidden;
 }
 
+.heroComFoto {
+  padding: 0;
+  background: #071428;
+}
+
+.heroFotoImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.heroFotoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 20, 40, 0.72) 0%,
+    rgba(10, 31, 68, 0.55) 50%,
+    rgba(7, 20, 40, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+.heroComFoto .heroInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.heroComFoto .botaoVoltar {
+  position: absolute;
+  top: 5.5rem;
+  left: 2rem;
+}
+
+.heroComFoto .titulo {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.heroComFoto .descricao {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
 .heroDecorado {
   position: absolute;
   inset: 0;
@@ -297,5 +350,159 @@
   .cardResponsavel {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+.secaoEquipes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.secaoTextoEquipes {
+  margin-bottom: 0;
+}
+
+.blocoEquipe {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.equipeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.equipeNome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cor-azul-profundo);
+}
+
+.equipeTotal {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+  background: rgba(10, 31, 68, 0.06);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+}
+
+.gridEquipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.cardEquipe {
+  background: var(--cor-branco);
+  border: 1px solid rgba(10, 31, 68, 0.07);
+  border-radius: var(--raio-medio);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transicao);
+}
+
+.cardEquipeLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cardEquipeLink:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-media);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.cardEquipeTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardEquipeNome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cor-azul-profundo);
+}
+
+.cardEquipeDescricao {
+  font-size: 0.88rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.cardEquipeBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+  margin-top: 0.25rem;
+}
+
+.membrosMini {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(10, 31, 68, 0.06);
+}
+
+.cardMembroMini {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.membroAvatarMini {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(
+    135deg,
+    var(--cor-azul-profundo),
+    var(--cor-azul-claro)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--cor-branco);
+}
+
+.membroInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.membroNome {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--cor-azul-profundo);
+}
+
+.membroFuncao {
+  font-size: 0.75rem;
+  color: var(--cor-texto-secundario);
+}
+
+@media (max-width: 600px) {
+  .gridEquipes {
+    grid-template-columns: 1fr;
   }
 }

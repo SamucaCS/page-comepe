@@ -139,6 +139,7 @@
   letter-spacing: 0.1em;
   position: relative;
   z-index: 1;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -312,6 +313,217 @@
   max-width: 360px;
 }
 
+/* Toggle de visão */
+.toggleVisao {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(10, 31, 68, 0.15);
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+.toggleBtnAtivo {
+  background: var(--cor-azul-profundo);
+  color: var(--cor-branco);
+  border-color: transparent;
+}
+
+/* Calendário */
+.calendario {
+  background: var(--cor-branco);
+  border: 1px solid rgba(10, 31, 68, 0.08);
+  border-radius: var(--raio-medio);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+.calNavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--cor-azul-profundo);
+}
+
+.calNavBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+.calNavBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--cor-branco);
+}
+
+.calMesTitulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+}
+
+.calSemanaHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid rgba(10, 31, 68, 0.07);
+}
+
+.calDiaSemana {
+  text-align: center;
+  padding: 0.75rem 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+}
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calCelula {
+  border-right: 1px solid rgba(10, 31, 68, 0.05);
+  border-bottom: 1px solid rgba(10, 31, 68, 0.05);
+  min-height: 80px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.calCelulaVazia {
+  border-right: 1px solid rgba(10, 31, 68, 0.05);
+  border-bottom: 1px solid rgba(10, 31, 68, 0.05);
+  min-height: 80px;
+  background: rgba(10, 31, 68, 0.02);
+}
+
+.calCelulaComEvento {
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.calDia {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--cor-azul-profundo);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.calCelulaHoje .calDia {
+  background: var(--cor-azul-profundo);
+  color: var(--cor-branco);
+}
+
+.calEventoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  background: rgba(201, 168, 76, 0.15);
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  transition: var(--transicao);
+}
+
+.calEventoLink:hover {
+  background: rgba(201, 168, 76, 0.3);
+}
+
+.calEventoPonto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cor-dourado);
+  flex-shrink: 0;
+}
+
+.calEventoNome {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--cor-azul-profundo);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calEventosSemData {
+  border-top: 1px solid rgba(10, 31, 68, 0.07);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.calSemDataTitulo {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+}
+
+.calSemDataCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--cor-branco-suave);
+  border: 1px solid rgba(10, 31, 68, 0.07);
+  border-radius: var(--raio-pequeno);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.calSemDataCard:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateX(4px);
+}
+
+.calSemDataNome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cor-azul-profundo);
+}
+
+.calSemDataData {
+  font-size: 0.8rem;
+  color: var(--cor-texto-secundario);
+  margin-top: 0.15rem;
+}
+
 @media (max-width: 600px) {
   .secao {
     padding: 5rem 1.5rem;
@@ -319,5 +531,14 @@
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .calCelula,
+  .calCelulaVazia {
+    min-height: 52px;
+  }
+
+  .calEventoNome {
+    display: none;
   }
 }

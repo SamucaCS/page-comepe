@@ -1,0 +1,99 @@
+.banner {
+  background: linear-gradient(135deg, #b71c1c, #e53935);
+  padding: 1.25rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  padding: 0.3rem 0.9rem;
+  flex-shrink: 0;
+}
+
+.badgePonto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: piscarVivo 1s ease-in-out infinite;
+}
+
+@keyframes piscarVivo {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.badgeTexto {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.descricao {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.15rem;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  color: #b71c1c;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--raio-pequeno);
+  text-decoration: none;
+  transition: var(--transicao);
+  flex-shrink: 0;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

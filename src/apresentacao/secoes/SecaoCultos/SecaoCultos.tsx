@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sun, Users, Heart } from "lucide-react";
+import { Sun, Users, Heart, Shield, Star, Baby } from "lucide-react";
 import { cultos } from "../../../dados/cultos";
 import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoCultos.module.css";
@@ -9,6 +9,9 @@ const mapaIcones: Record<string, JSX.Element> = {
   "culto-domingo": <Sun size={24} color="#0a1f44" />,
   "rede-jovens": <Users size={24} color="#ffffff" />,
   "rede-casais": <Heart size={24} color="#ffffff" />,
+  "rede-homens": <Shield size={24} color="#ffffff" />,
+  "rede-mulheres": <Star size={24} color="#ffffff" />,
+  "rede-criancas": <Baby size={24} color="#ffffff" />,
 };
 
 export function SecaoCultos() {

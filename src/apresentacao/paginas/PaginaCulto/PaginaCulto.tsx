@@ -1,12 +1,13 @@
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link, useParams } from "react-router-dom";
 import { cultos } from "../../../dados/cultos";
 import { Cabecalho } from "../../componentes/Cabecalho/Cabecalho";
 import { Rodape } from "../../componentes/Rodape/Rodape";
 import estilos from "./PaginaCulto.module.css";
 
 function iniciais(nome: string) {
-  return nome === "A definir" ? "?" : nome.charAt(0).toUpperCase();
+  if (nome === "A definir") return "?";
+  return nome.charAt(0).toUpperCase();
 }
 
 export function PaginaCulto() {
@@ -38,11 +39,23 @@ export function PaginaCulto() {
     <div className={estilos.pagina}>
       <Cabecalho />
 
-      <section className={estilos.hero}>
-        <div className={estilos.heroDecorado}>
-          <div className={estilos.heroCirculo1} />
-          <div className={estilos.heroCirculo2} />
-        </div>
+      <section className={`${estilos.hero} ${culto.foto ? estilos.heroComFoto : ""}`}>
+        {culto.foto ? (
+          <>
+            <img
+              src={culto.foto}
+              alt=""
+              aria-hidden="true"
+              className={estilos.heroFotoImg}
+            />
+            <div className={estilos.heroFotoOverlay} />
+          </>
+        ) : (
+          <div className={estilos.heroDecorado}>
+            <div className={estilos.heroCirculo1} />
+            <div className={estilos.heroCirculo2} />
+          </div>
+        )}
 
         <div className={estilos.heroInner}>
           <Link to="/#cultos" className={estilos.botaoVoltar}>
@@ -91,28 +104,72 @@ export function PaginaCulto() {
             </div>
           </div>
 
-          <div>
-            <div
-              className={estilos.secaoTexto}
-              style={{ marginBottom: "1.25rem" }}
-            >
-              <span className={estilos.secaoTitulo}>Equipe</span>
-              <div className={estilos.linha} />
-            </div>
-            <div className={estilos.gridMembros}>
-              {culto.membros.map((membro) => (
-                <div key={membro.id} className={estilos.cardMembro}>
-                  <div className={estilos.membroAvatar}>
-                    {iniciais(membro.nome)}
+          {culto.equipes && culto.equipes.length > 0 && (
+            <div className={estilos.secaoEquipes}>
+              {culto.equipes.some((e) => e.link) && (
+                <>
+                  <div
+                    className={`${estilos.secaoTexto} ${estilos.secaoTextoEquipes}`}
+                  >
+                    <span className={estilos.secaoTitulo}>Equipes do Culto</span>
+                    <div className={estilos.linha} />
                   </div>
-                  <div className={estilos.membroInfo}>
-                    <p className={estilos.membroNome}>{membro.nome}</p>
-                    <p className={estilos.membroFuncao}>{membro.funcao}</p>
+                  <div className={estilos.gridEquipes}>
+                    {culto.equipes
+                      .filter((e) => e.link)
+                      .map((equipe) => (
+                        <Link
+                          key={equipe.id}
+                          to={equipe.link!}
+                          className={`${estilos.cardEquipe} ${estilos.cardEquipeLink}`}
+                        >
+                          <div className={estilos.cardEquipeTopo}>
+                            <h3 className={estilos.cardEquipeNome}>
+                              {equipe.nome}
+                            </h3>
+                            <ArrowRight size={16} color="#c9a84c" />
+                          </div>
+                          <p className={estilos.cardEquipeDescricao}>
+                            {equipe.descricao}
+                          </p>
+                          <span className={estilos.cardEquipeBadge}>
+                            Ver página completa
+                          </span>
+                        </Link>
+                      ))}
                   </div>
-                </div>
-              ))}
+                </>
+              )}
+
+              {culto.equipes
+                .filter((e) => !e.link && e.membros.length > 0)
+                .map((equipe) => (
+                  <div key={equipe.id} className={estilos.blocoEquipe}>
+                    <div className={estilos.equipeHeader}>
+                      <h3 className={estilos.equipeNome}>{equipe.nome}</h3>
+                      <span className={estilos.equipeTotal}>
+                        {equipe.membros.length} membros
+                      </span>
+                    </div>
+                    <div className={estilos.gridMembros}>
+                      {equipe.membros.map((membro) => (
+                        <div key={membro.id} className={estilos.cardMembro}>
+                          <div className={estilos.membroAvatar}>
+                            {iniciais(membro.nome)}
+                          </div>
+                          <div className={estilos.membroInfo}>
+                            <p className={estilos.membroNome}>{membro.nome}</p>
+                            <p className={estilos.membroFuncao}>
+                              {membro.funcao}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
             </div>
-          </div>
+          )}
         </div>
       </div>
 

@@ -15,6 +15,59 @@
   overflow: hidden;
 }
 
+.heroComFoto {
+  padding: 0;
+  background: #071428;
+}
+
+.heroFotoImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.heroFotoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 20, 40, 0.72) 0%,
+    rgba(10, 31, 68, 0.55) 50%,
+    rgba(7, 20, 40, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+.heroComFoto .heroInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.heroComFoto .botaoVoltar {
+  position: absolute;
+  top: 5.5rem;
+  left: 2rem;
+}
+
+.heroComFoto .titulo {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.heroComFoto .descricao {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
 .heroDecorado {
   position: absolute;
   inset: 0;

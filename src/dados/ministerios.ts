@@ -18,6 +18,7 @@ export interface Ministerio {
   icone: string;
   publico: string;
   slug: string;
+  foto?: string | null;
   responsavel: Membro;
   membros: Membro[];
   equipes?: Equipe[];
@@ -34,6 +35,7 @@ export const ministerios: Ministerio[] = [
     icone: "Music",
     publico: "Toda a congregação",
     slug: "louvor",
+    foto: "/equipe_louvor.JPG",
     responsavel: { id: "r1", nome: "Dâmarys", funcao: "Líder de Louvor" },
     membros: [],
     equipes: [
@@ -114,17 +116,21 @@ export const ministerios: Ministerio[] = [
     id: "wakemidia",
     nome: "Wakemídia",
     descricao:
-      "Ministério de comunicação e mídia responsável pela transmissão dos cultos, redes sociais e produção de conteúdo digital.",
+      "Equipe de projeção responsável pela exibição de mídias e suporte visual durante os cultos e eventos da COMEPE.",
     descricaoCompleta:
-      "O Wakemídia é o ministério de comunicação da COMEPE. Somos responsáveis por transmitir os cultos ao vivo, gerenciar as redes sociais, produzir conteúdo digital e registrar os momentos especiais da comunidade. Nossa missão é levar a palavra de Deus além das paredes da igreja.",
+      "O Wakemídia é a equipe de projeção da COMEPE. Somos responsáveis pela exibição de letras, mídias e todo o suporte visual durante os cultos e eventos, garantindo que cada momento seja acompanhado com excelência e dedicação.",
     icone: "Video",
-    publico: "Toda a congregação",
+    publico: "Equipe de Projeção",
     slug: "wakemidia",
-    responsavel: { id: "r2", nome: "A definir", funcao: "Líder de Mídia" },
+    foto: "/equipe_wakemidia.JPG",
+    responsavel: { id: "r2", nome: "Luiz", funcao: "Líder" },
     membros: [
-      { id: "m4", nome: "Membro 1", funcao: "Transmissão" },
-      { id: "m5", nome: "Membro 2", funcao: "Redes Sociais" },
-      { id: "m6", nome: "Membro 3", funcao: "Design" },
+      { id: "wm1", nome: "Rebeca", funcao: "Equipe" },
+      { id: "wm2", nome: "Wilson", funcao: "Equipe" },
+      { id: "wm3", nome: "Samuel", funcao: "Equipe" },
+      { id: "wm4", nome: "Matheus", funcao: "Equipe" },
+      { id: "wm5", nome: "Pedro", funcao: "Equipe" },
+      { id: "wm6", nome: "Felipe", funcao: "Equipe" },
     ],
   },
   {
@@ -137,7 +143,8 @@ export const ministerios: Ministerio[] = [
     icone: "Heart",
     publico: "Comunidade",
     slug: "cesta-do-amor",
-    responsavel: { id: "r3", nome: "A definir", funcao: "Líder Social" },
+    foto: "/equipe_cesta_amor.JPG",
+    responsavel: { id: "r3", nome: "Pastor Paulo", funcao: "Líder Social" },
     membros: [
       { id: "m7", nome: "Membro 1", funcao: "Arrecadação" },
       { id: "m8", nome: "Membro 2", funcao: "Distribuição" },
@@ -147,48 +154,193 @@ export const ministerios: Ministerio[] = [
     id: "wakeplay",
     nome: "Wakeplay",
     descricao:
-      "Ministério infantil que cuida das crianças durante os cultos com atividades lúdicas, ensinamentos bíblicos e muito amor.",
+      "Equipe de transmissão responsável pela gravação e transmissão ao vivo dos cultos e eventos da COMEPE.",
     descricaoCompleta:
-      "O Wakeplay é o ministério infantil da COMEPE. Cuidamos das crianças durante os cultos com atividades lúdicas, histórias bíblicas, músicas e muito amor. Nosso objetivo é plantar a semente da fé no coração de cada criança desde cedo, em um ambiente seguro e divertido.",
+      "O Wakeplay é a equipe de transmissão da COMEPE. Somos responsáveis pela gravação e transmissão ao vivo dos cultos e eventos, levando a Palavra de Deus além das paredes da igreja com excelência e dedicação.",
     icone: "Star",
-    publico: "Crianças",
+    publico: "Equipe de Transmissão",
     slug: "wakeplay",
-    responsavel: { id: "r4", nome: "A definir", funcao: "Líder Infantil" },
+    foto: "/equipe_wakeplay.JPG",
+    responsavel: { id: "r4", nome: "Rafaela e Lucas", funcao: "Líderes" },
     membros: [
-      { id: "m9", nome: "Membro 1", funcao: "Professora" },
-      { id: "m10", nome: "Membro 2", funcao: "Auxiliar" },
+      { id: "wp1", nome: "Pastora Keyla", funcao: "Equipe" },
+      { id: "wp2", nome: "Kesya", funcao: "Equipe" },
+      { id: "wp3", nome: "Danilo", funcao: "Equipe" },
+      { id: "wp4", nome: "Felipe", funcao: "Equipe" },
+      { id: "wp5", nome: "Pastor Charles", funcao: "Equipe" },
+      { id: "wp6", nome: "Ana Beatriz", funcao: "Equipe" },
+      { id: "wp7", nome: "Samuel", funcao: "Equipe" },
     ],
   },
   {
     id: "jovens",
-    nome: "Ministério dos Jovens",
+    nome: "Rede de Jovens",
     descricao:
       "Ministério dedicado aos jovens com encontros, estudos bíblicos e atividades que fortalecem a fé na juventude.",
     descricaoCompleta:
-      "O Ministério dos Jovens da COMEPE é um espaço de crescimento, comunhão e propósito para a juventude. Através de encontros, estudos bíblicos, eventos e atividades, ajudamos os jovens a descobrirem sua identidade em Cristo e a viverem uma fé genuína no dia a dia.",
+      "A Rede de Jovens da COMEPE é um espaço de crescimento, comunhão e propósito para a juventude. Através de encontros, estudos bíblicos, eventos e atividades, ajudamos os jovens a descobrirem sua identidade em Cristo e a viverem uma fé genuína no dia a dia.",
     icone: "Users",
     publico: "Jovens",
     slug: "jovens",
-    responsavel: { id: "r5", nome: "A definir", funcao: "Líder de Jovens" },
+    foto: "/equipe_de_jovens.JPG",
+    responsavel: { id: "r5", nome: "Dãmarys", funcao: "Responsável" },
     membros: [
-      { id: "m11", nome: "Membro 1", funcao: "Coordenador" },
-      { id: "m12", nome: "Membro 2", funcao: "Auxiliar" },
+      { id: "j1", nome: "Apostola Berenice", funcao: "Equipe" },
+      { id: "j2", nome: "Jeferssor", funcao: "Equipe" },
+      { id: "j3", nome: "Silvia", funcao: "Equipe" },
+      { id: "j4", nome: "Pedro", funcao: "Equipe" },
+      { id: "j5", nome: "Victoria", funcao: "Equipe" },
+      { id: "j6", nome: "Kesya", funcao: "Equipe" },
+      { id: "j7", nome: "Fernanda", funcao: "Equipe" },
+      { id: "j8", nome: "Daniela", funcao: "Equipe" },
+      { id: "j9", nome: "Samuel", funcao: "Equipe" },
     ],
   },
   {
     id: "casais",
-    nome: "Ministério dos Casais",
+    nome: "Rede de Casais",
     descricao:
       "Ministério que fortalece os laços matrimoniais através de encontros, retiros e aconselhamento bíblico para casais.",
     descricaoCompleta:
-      "O Ministério dos Casais da COMEPE existe para fortalecer os matrimônios e famílias da nossa comunidade. Através de encontros, retiros e aconselhamento baseado na Palavra de Deus, ajudamos os casais a construírem relacionamentos sólidos, saudáveis e com propósito eterno.",
+      "A Rede de Casais da COMEPE existe para fortalecer os matrimônios e famílias da nossa comunidade. Através de encontros, retiros e aconselhamento baseado na Palavra de Deus, ajudamos os casais a construírem relacionamentos sólidos, saudáveis e com propósito eterno.",
     icone: "HandHeart",
     publico: "Casais",
     slug: "casais",
-    responsavel: { id: "r6", nome: "A definir", funcao: "Líder de Casais" },
+    responsavel: {
+      id: "r6",
+      nome: "Thiago e Tamires",
+      funcao: "Líderes de Casais",
+    },
+    membros: [],
+  },
+  {
+    id: "intercessao",
+    nome: "Intercessão",
+    descricao:
+      "Ministério de oração e intercessão que sustenta espiritualmente todos os cultos e atividades da COMEPE.",
+    descricaoCompleta:
+      "O Ministério de Intercessão é o alicerce espiritual da COMEPE. Através da oração constante e da intercessão fervorosa, sustentamos cada culto, evento e necessidade da comunidade. Acreditamos que a oração é o combustível que move a igreja e transforma vidas.",
+    icone: "HandsClapping",
+    publico: "Toda a congregação",
+    slug: "intercessao",
+    foto: "/equipe_intercessao.JPG",
+    responsavel: {
+      id: "r7",
+      nome: "A definir",
+      funcao: "Líder de Intercessão",
+    },
     membros: [
-      { id: "m13", nome: "Casal 1", funcao: "Coordenação" },
-      { id: "m14", nome: "Casal 2", funcao: "Auxiliar" },
+      { id: "int1", nome: "A definir", funcao: "Intercessor" },
+      { id: "int2", nome: "A definir", funcao: "Intercessor" },
     ],
+    equipes: [],
+  },
+  {
+    id: "pastoral",
+    nome: "Equipe Pastoral",
+    descricao:
+      "Equipe responsável pelo cuidado, acolhimento e acompanhamento espiritual de cada membro da comunidade.",
+    descricaoCompleta:
+      "A Equipe Pastoral da COMEPE é responsável pelo cuidado integral de cada membro da comunidade. Através do acompanhamento espiritual, aconselhamento e acolhimento, buscamos garantir que ninguém enfrente os desafios da vida sozinho. Nossa missão é pastorear com amor, dedicação e compromisso com a Palavra de Deus.",
+    icone: "BookOpen",
+    publico: "12 Discípulos do Apóstolo Joel",
+    slug: "pastoral",
+    responsavel: {
+      id: "r8",
+      nome: "Apóstolo Joel Motta Carvalho",
+      funcao: "Pastor Responsável",
+    },
+    membros: [
+      { id: "pas1", nome: "A definir", funcao: "Pastor Auxiliar" },
+      { id: "pas2", nome: "A definir", funcao: "Auxiliar Pastoral" },
+    ],
+    equipes: [],
+  },
+  {
+    id: "ouro-oufir",
+    nome: "Ouro de oufir",
+    descricao:
+      "Ministério de discipulado e crescimento espiritual para aprofundar a fé e o compromisso com Deus.",
+    descricaoCompleta:
+      "O Ouro de oufir é o ministério de discipulado da COMEPE. Um espaço de aprofundamento espiritual, onde buscamos crescer no conhecimento de Deus, no caráter cristão e no propósito de vida. Como ouro que passa pelo fogo, somos moldados para refletir a glória de Cristo.",
+    icone: "Crown",
+    publico: "Toda a congregação",
+    slug: "ouro-oufir",
+    foto: "/equipe_ouro_oufir.JPG",
+    responsavel: { id: "r9", nome: "Amanda", funcao: "Responsável" },
+    membros: [],
+  },
+  {
+    id: "asher",
+    nome: "Asher",
+    descricao:
+      "Ministério de cuidado e inclusão dedicado às pessoas com deficiência visual, promovendo acolhimento e participação plena na vida da igreja.",
+    descricaoCompleta:
+      "O Ministério Asher da COMEPE é dedicado ao cuidado e inclusão das pessoas com deficiência visual. Com amor e sensibilidade, buscamos garantir que cada pessoa cega ou com baixa visão seja plenamente acolhida, participante ativa da comunidade e alcançada pela Palavra de Deus.",
+    icone: "Eye",
+    publico: "Pessoas com deficiência visual",
+    slug: "asher",
+    responsavel: { id: "r11", nome: "Silvia", funcao: "Líder" },
+    membros: [],
+  },
+  {
+    id: "wake-fotos",
+    nome: "Wake Fotos",
+    descricao:
+      "Equipe de fotografia responsável por registrar os momentos especiais dos cultos e eventos da COMEPE.",
+    descricaoCompleta:
+      "O Wake Fotos é a equipe de fotografia da COMEPE. Somos responsáveis por registrar com excelência os momentos especiais dos cultos, eventos e a vida da comunidade, preservando memórias e contando a história da nossa igreja através das imagens.",
+    icone: "Camera",
+    publico: "Equipe de Fotografia",
+    slug: "wake-fotos",
+    foto: "/equipe_wake_foto.JPG",
+    responsavel: { id: "r12", nome: "Daniela", funcao: "Líder" },
+    membros: [],
+  },
+  {
+    id: "anjos-guarda",
+    nome: "Anjos da Guarda",
+    descricao:
+      "Ministério que cuida da segurança e organização dos veículos na rua durante os cultos e eventos da COMEPE.",
+    descricaoCompleta:
+      "Os Anjos da Guarda são o ministério de segurança viária da COMEPE. Com dedicação e cuidado, nossa equipe orienta e zela pelos veículos estacionados nas ruas ao redor da igreja durante os cultos e eventos, servindo a Deus e à comunidade com excelência nos bastidores.",
+    icone: "Car",
+    publico: "Segurança Viária",
+    slug: "anjos-guarda",
+    foto: "/equipe_anjos_guarda.JPG",
+    responsavel: {
+      id: "r14",
+      nome: "Pastor Paulo e Pastor Irineu",
+      funcao: "Líderes",
+    },
+    membros: [],
+  },
+  {
+    id: "som",
+    nome: "Ministério de Som",
+    descricao:
+      "Equipe responsável pela operação e qualidade do som em todos os cultos e eventos da COMEPE.",
+    descricaoCompleta:
+      "O Ministério de Som da COMEPE é responsável pela operação técnica de áudio em todos os cultos e eventos. Com dedicação e excelência, garante que a Palavra e o louvor cheguem com clareza a cada pessoa presente, servindo a Deus nos bastidores com propósito.",
+    icone: "Volume2",
+    publico: "Equipe de Sonorização",
+    slug: "som",
+    foto: "/equipe_som.JPG",
+    responsavel: { id: "r13", nome: "Dâmarys", funcao: "Líder" },
+    membros: [],
+  },
+  {
+    id: "kids",
+    nome: "Ministério Kids",
+    descricao:
+      "Ministério infantil que cuida das crianças durante os cultos com atividades lúdicas, ensinamentos bíblicos e muito amor.",
+    descricaoCompleta:
+      "O Ministério dos Kids da COMEPE cuida das crianças durante os cultos com atividades lúdicas, histórias bíblicas, músicas e muito amor. Nosso objetivo é plantar a semente da fé no coração de cada criança desde cedo, em um ambiente seguro e divertido.",
+    icone: "Baby",
+    publico: "Crianças",
+    slug: "kids",
+    foto: "/equipe_kids.JPG",
+    responsavel: { id: "r10", nome: "Bruna", funcao: "Líder Infantil" },
+    membros: [],
   },
 ];

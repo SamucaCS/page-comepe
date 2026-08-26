@@ -8,7 +8,7 @@ const links = [
   { rotulo: "Cultos", ancora: "#cultos" },
   { rotulo: "Ministérios", ancora: "#ministerios" },
   { rotulo: "Agenda", ancora: "#agenda" },
-  { rotulo: "Contato", ancora: "#contato" },
+  { rotulo: "Redes Sociais", ancora: "#contato" },
 ];
 
 export function Cabecalho() {
@@ -33,9 +33,9 @@ export function Cabecalho() {
 
         <nav className={estilos.nav}>
           {links.map((link) => (
-            <a key={link.ancora} href={link.ancora} className={estilos.navLink}>
+            <Link key={link.ancora} to={`/${link.ancora}`} className={estilos.navLink}>
               {link.rotulo}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -53,14 +53,14 @@ export function Cabecalho() {
         className={`${estilos.navMobile} ${menuAberto ? estilos.navMobileAberto : ""}`}
       >
         {links.map((link) => (
-          <a
+          <Link
             key={link.ancora}
-            href={link.ancora}
+            to={`/${link.ancora}`}
             className={estilos.navLinkMobile}
             onClick={fecharMenu}
           >
             {link.rotulo}
-          </a>
+          </Link>
         ))}
       </nav>
     </header>

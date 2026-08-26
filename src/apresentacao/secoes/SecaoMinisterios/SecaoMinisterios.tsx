@@ -1,9 +1,24 @@
+import {
+  Baby,
+  BookOpen,
+  Camera,
+  Car,
+  Crown,
+  Eye,
+  Flame,
+  Handshake,
+  Heart,
+  Music,
+  Star,
+  Users,
+  Video,
+  Volume2,
+} from "lucide-react";
+import type { JSX } from "react";
 import { Link } from "react-router-dom";
-import { Music, Video, Heart, Star, Users, Handshake } from "lucide-react";
 import { ministerios } from "../../../dados/ministerios";
 import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoMinisterios.module.css";
-import type { JSX } from "react";
 
 const mapaIcones: Record<string, JSX.Element> = {
   Music: <Music size={24} color="#ffffff" />,
@@ -12,6 +27,14 @@ const mapaIcones: Record<string, JSX.Element> = {
   Star: <Star size={24} color="#ffffff" />,
   Users: <Users size={24} color="#ffffff" />,
   HandHeart: <Handshake size={24} color="#ffffff" />,
+  HandsClapping: <Flame size={24} color="#ffffff" />,
+  BookOpen: <BookOpen size={24} color="#ffffff" />,
+  Crown: <Crown size={24} color="#ffffff" />,
+  Baby: <Baby size={24} color="#ffffff" />,
+  Eye: <Eye size={24} color="#ffffff" />,
+  Camera: <Camera size={24} color="#ffffff" />,
+  Volume2: <Volume2 size={24} color="#ffffff" />,
+  Car: <Car size={24} color="#ffffff" />,
 };
 
 export function SecaoMinisterios() {

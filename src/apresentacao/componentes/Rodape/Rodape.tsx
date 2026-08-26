@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import estilos from "./Rodape.module.css";
 
 const linksNavegacao = [
-  { rotulo: "Início", ancora: "#" },
-  { rotulo: "Sobre", ancora: "#sobre" },
-  { rotulo: "Cultos", ancora: "#cultos" },
-  { rotulo: "Ministérios", ancora: "#ministerios" },
-  { rotulo: "Agenda", ancora: "#agenda" },
-  { rotulo: "Contato", ancora: "#contato" },
+  { rotulo: "Início", href: "/" },
+  { rotulo: "Sobre", href: "/#sobre" },
+  { rotulo: "Cultos", href: "/#cultos" },
+  { rotulo: "Ministérios", href: "/#ministerios" },
+  { rotulo: "Agenda", href: "/#agenda" },
+  { rotulo: "Contato", href: "/#contato" },
+  { rotulo: "Pedidos de Oração", href: "/oracao" },
 ];
 const linksRedes = [
   { rotulo: "Instagram", link: "https://www.instagram.com/comepe.m12/" },
@@ -49,13 +50,13 @@ export function Rodape() {
           <p className={estilos.colTitulo}>Navegação</p>
           <div className={estilos.colLinks}>
             {linksNavegacao.map((item) => (
-              <a
-                key={item.ancora}
-                href={item.ancora}
+              <Link
+                key={item.href}
+                to={item.href}
                 className={estilos.colLink}
               >
                 {item.rotulo}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

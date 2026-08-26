@@ -1,14 +1,3 @@
-export interface Evento {
-  id: string;
-  nome: string;
-  descricao: string;
-  data: string;
-  local: string;
-  vagas: number;
-  slug: string;
-  destaque: boolean;
-}
-
 export interface Lote {
   id: string;
   mes: string;
@@ -31,6 +20,7 @@ export interface Evento {
   nome: string;
   descricao: string;
   data: string;
+  dataCalendario?: string;
   local: string;
   vagas: number;
   slug: string;
@@ -122,5 +112,35 @@ export const eventos: Evento[] = [
       "Crianças de 04 a 06 anos pagam meia entrada",
       "Acelere sua inscrição e pagamento!",
     ],
+  },
+  {
+    id: "daycamp-2025",
+    nome: "DayCamp",
+    descricao:
+      "Um dia especial de comunhão, louvor e confraternização em meio à natureza. Venha viver um dia inesquecível com a família COMEPE.",
+    data: "21 de Abril de 2026",
+    dataCalendario: "2026-04-21",
+    local: "Chácara Bela Vista — Arujá",
+    vagas: 0,
+    slug: "daycamp",
+    destaque: true,
+    lotes: [
+      {
+        id: "dc-l1",
+        mes: "Ingresso",
+        quantidade: 50,
+        valor: 50,
+        status: "disponivel",
+      },
+    ],
+    pagamento: {
+      banco: "Bradesco",
+      codigo: "237",
+      agencia: "",
+      conta: "",
+      pix: "01213146852",
+      titular: "COMEPE",
+    },
+    observacoes: ["Valor de R$ 50,00 por pessoa", "Pagamento via PIX Bradesco"],
   },
 ];

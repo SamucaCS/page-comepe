@@ -1,18 +1,26 @@
-import { useParams, Link } from "react-router-dom";
 import {
   ArrowLeft,
-  Music,
-  Video,
+  Baby,
+  BookOpen,
+  Camera,
+  Car,
+  Crown,
+  Eye,
+  Flame,
+  Handshake,
   Heart,
+  Music,
   Star,
   Users,
-  Handshake,
+  Video,
+  Volume2,
 } from "lucide-react";
+import type { JSX } from "react";
+import { Link, useParams } from "react-router-dom";
 import { ministerios } from "../../../dados/ministerios";
 import { Cabecalho } from "../../componentes/Cabecalho/Cabecalho";
 import { Rodape } from "../../componentes/Rodape/Rodape";
 import estilos from "./PaginaMinisterio.module.css";
-import type { JSX } from "react";
 
 const mapaIcones: Record<string, JSX.Element> = {
   Music: <Music size={28} color="#0a1f44" />,
@@ -21,6 +29,14 @@ const mapaIcones: Record<string, JSX.Element> = {
   Star: <Star size={28} color="#0a1f44" />,
   Users: <Users size={28} color="#0a1f44" />,
   HandHeart: <Handshake size={28} color="#0a1f44" />,
+  HandsClapping: <Flame size={28} color="#0a1f44" />,
+  BookOpen: <BookOpen size={28} color="#0a1f44" />,
+  Crown: <Crown size={28} color="#0a1f44" />,
+  Baby: <Baby size={28} color="#0a1f44" />,
+  Eye: <Eye size={28} color="#0a1f44" />,
+  Camera: <Camera size={28} color="#0a1f44" />,
+  Volume2: <Volume2 size={28} color="#0a1f44" />,
+  Car: <Car size={28} color="#0a1f44" />,
 };
 
 function iniciais(nome: string) {
@@ -58,11 +74,23 @@ export function PaginaMinisterio() {
     <div className={estilos.pagina}>
       <Cabecalho />
 
-      <section className={estilos.hero}>
-        <div className={estilos.heroDecorado}>
-          <div className={estilos.heroCirculo1} />
-          <div className={estilos.heroCirculo2} />
-        </div>
+      <section className={`${estilos.hero} ${ministerio.foto ? estilos.heroComFoto : ""}`}>
+        {ministerio.foto ? (
+          <>
+            <img
+              src={ministerio.foto}
+              alt=""
+              aria-hidden="true"
+              className={estilos.heroFotoImg}
+            />
+            <div className={estilos.heroFotoOverlay} />
+          </>
+        ) : (
+          <div className={estilos.heroDecorado}>
+            <div className={estilos.heroCirculo1} />
+            <div className={estilos.heroCirculo2} />
+          </div>
+        )}
 
         <div className={estilos.heroInner}>
           <Link to="/#ministerios" className={estilos.botaoVoltar}>

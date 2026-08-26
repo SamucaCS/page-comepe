@@ -73,7 +73,7 @@ export function SecaoVersiculo() {
         </div>
 
         <div className={estilos.botoes}>
-          <button onClick={anterior} className={estilos.botao}>
+          <button aria-label="Versículo anterior" onClick={anterior} className={estilos.botao}>
             <ChevronLeft size={18} />
           </button>
 
@@ -81,13 +81,14 @@ export function SecaoVersiculo() {
             {versiculos.slice(inicio, inicio + pontosVisiveis).map((_, i) => (
               <button
                 key={inicio + i}
+                aria-label={`Ir para versículo ${inicio + i + 1}`}
                 onClick={() => trocar(inicio + i)}
                 className={`${estilos.ponto} ${indice === inicio + i ? estilos.pontoAtivo : ""}`}
               />
             ))}
           </div>
 
-          <button onClick={proximo} className={estilos.botao}>
+          <button aria-label="Próximo versículo" onClick={proximo} className={estilos.botao}>
             <ChevronRight size={18} />
           </button>
         </div>

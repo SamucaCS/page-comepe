@@ -1,4 +1,6 @@
 import { Target, Eye, Heart } from "lucide-react";
+import { useState } from "react";
+import { versiculos } from "../../../dados/versiculos";
 import { useAnimacaoScroll } from "../../hooks/useAnimacaoScroll";
 import estilos from "./SecaoSobre.module.css";
 
@@ -27,6 +29,9 @@ const pilares = [
 ];
 
 export function SecaoSobre() {
+  const [versiculo] = useState(
+    () => versiculos[Math.floor(Math.random() * versiculos.length)],
+  );
   const { ref: refEsquerda, visivel: visivelEsquerda } = useAnimacaoScroll();
   const { ref: refDireita, visivel: visivelDireita } = useAnimacaoScroll();
 
@@ -56,12 +61,10 @@ export function SecaoSobre() {
             um lugar para você na COMEPE.
           </p>
           <div className={estilos.versiculo}>
-            <p className={estilos.versiculoTexto}>
-              Porque Deus amou o mundo de tal maneira que deu o seu Filho
-              unigênito, para que todo aquele que nele crê não pereça, mas tenha
-              a vida eterna.
-            </p>
-            <span className={estilos.versiculoReferencia}>João 3:16</span>
+            <p className={estilos.versiculoTexto}>{versiculo.texto}</p>
+            <span className={estilos.versiculoReferencia}>
+              {versiculo.referencia}
+            </span>
           </div>
         </div>
 

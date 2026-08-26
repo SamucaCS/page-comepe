@@ -1,0 +1,142 @@
+.secao {
+  padding: 7rem 2rem;
+  background: linear-gradient(
+    160deg,
+    var(--cor-azul-profundo) 0%,
+    var(--cor-azul-medio) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cabecalhoSecao {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.rotulo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--cor-branco);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.linha {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cor-dourado), var(--cor-dourado-claro));
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--raio-medio);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: var(--transicao);
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(201, 168, 76, 0.35);
+  transform: translateY(-4px);
+}
+
+.aspas {
+  color: var(--cor-dourado);
+  opacity: 0.8;
+}
+
+.texto {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  flex: 1;
+  font-style: italic;
+}
+
+.divisor {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.autorAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-dourado), var(--cor-dourado-claro));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--cor-azul-profundo);
+  flex-shrink: 0;
+}
+
+.autorNome {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+}
+
+.autorFuncao {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 600px) {
+  .secao {
+    padding: 5rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

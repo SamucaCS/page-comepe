@@ -4,6 +4,7 @@ import { PaginaInicial } from "../apresentacao/paginas/PaginaInicial/PaginaInici
 import { PaginaEvento } from "../apresentacao/paginas/PaginaEvento/PaginaEvento";
 import { PaginaGqm } from "../apresentacao/paginas/PaginaGqm/PaginaGqm";
 import { PaginaAdmin } from "../apresentacao/paginas/PaginaAdmin/PaginaAdmin";
+import { PaginaOracao } from "../apresentacao/paginas/PaginaOracao/PaginaOracao";
 import { PaginaMinisterio } from "../apresentacao/paginas/PaginaMinisterio/PaginaMinisterio";
 import { PaginaCulto } from "../apresentacao/paginas/PaginaCulto/PaginaCulto";
 import { Pagina404 } from "../apresentacao/paginas/Pagina404/Pagina404";
@@ -18,6 +19,7 @@ export function Rotas() {
         <Route path="/eventos/:slug" element={<PaginaEvento />} />
         <Route path="/ministerios/:slug" element={<PaginaMinisterio />} />
         <Route path="/cultos/:slug" element={<PaginaCulto />} />
+        <Route path="/oracao" element={<PaginaOracao />} />
         <Route path="/admin" element={<PaginaAdmin />} />
         <Route path="*" element={<Pagina404 />} />
       </Routes>
