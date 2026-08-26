@@ -1,4 +1,11 @@
-import { ArrowLeft, Calendar, Check, Copy, MapPin } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  Check,
+  Copy,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { eventos } from "../../../dados/eventos";
@@ -12,7 +19,8 @@ export function PaginaEvento() {
   const [copiado, setCopiado] = useState(false);
 
   function copiarPix() {
-    navigator.clipboard.writeText(evento!.pagamento.pix);
+    if (!evento?.pagamento) return;
+    navigator.clipboard.writeText(evento.pagamento.pix);
     setCopiado(true);
     setTimeout(() => setCopiado(false), 2000);
   }
@@ -53,11 +61,17 @@ export function PaginaEvento() {
             <ArrowLeft size={14} />
             Voltar à agenda
           </Link>
-          {evento.destaque && (
-            <div className={estilos.badgeDestaque}>
-              <div className={estilos.badgePonto} />
-              <span className={estilos.badgeTexto}>Em destaque</span>
+          {evento.realizado ? (
+            <div className={estilos.badgeRealizado}>
+              <span className={estilos.badgeRealizadoTexto}>Realizado</span>
             </div>
+          ) : (
+            evento.destaque && (
+              <div className={estilos.badgeDestaque}>
+                <div className={estilos.badgePonto} />
+                <span className={estilos.badgeTexto}>Em destaque</span>
+              </div>
+            )
           )}
           <span className={estilos.rotulo}>Evento</span>
           <h1 className={estilos.titulo}>{evento.nome}</h1>
@@ -77,7 +91,21 @@ export function PaginaEvento() {
 
       <div className={estilos.conteudo}>
         <div className={estilos.conteudoInner}>
-          {precoUnico !== null ? (
+          {evento.valorAVista !== undefined ? (
+            <div className={estilos.cardPreco}>
+              <span className={estilos.precoRotulo}>Valor do investimento</span>
+              <p className={estilos.precoValor}>
+                R$ {evento.valorAVista.toFixed(2).replace(".", ",")}
+                <span className={estilos.precoSufixo}> à vista</span>
+              </p>
+              {evento.parcelamento && (
+                <p className={estilos.precoParcelado}>
+                  ou {evento.parcelamento.vezes}x de R${" "}
+                  {evento.parcelamento.valor.toFixed(2).replace(".", ",")}
+                </p>
+              )}
+            </div>
+          ) : precoUnico !== null ? (
             <div className={estilos.cardPreco}>
               <span className={estilos.precoRotulo}>Valor por pessoa</span>
               <p className={estilos.precoValor}>
@@ -117,36 +145,60 @@ export function PaginaEvento() {
             )
           )}
 
-          <div className={estilos.secaoPagamento}>
-            <div className={estilos.secaoTituloWrapper}>
-              <span className={estilos.secaoTitulo}>Pagamento</span>
-              <div className={estilos.linha} />
-            </div>
-            <div className={estilos.cardPix}>
-              <div className={estilos.pixTopo}>
-                <span className={estilos.pixBanco}>{evento.pagamento.banco}</span>
-                <span className={estilos.pixRotulo}>Chave PIX</span>
+          {evento.pagamento && (
+            <div className={estilos.secaoPagamento}>
+              <div className={estilos.secaoTituloWrapper}>
+                <span className={estilos.secaoTitulo}>Pagamento</span>
+                <div className={estilos.linha} />
               </div>
-              <p className={estilos.pixChave}>{evento.pagamento.pix}</p>
-              <button
-                type="button"
-                className={`${estilos.botaoCopiar} ${copiado ? estilos.botaoCopiarCopiado : ""}`}
-                onClick={copiarPix}
-              >
-                {copiado ? (
-                  <>
-                    <Check size={15} />
-                    Copiado!
-                  </>
-                ) : (
-                  <>
-                    <Copy size={15} />
-                    Copiar chave PIX
-                  </>
-                )}
-              </button>
+              <div className={estilos.cardPix}>
+                <div className={estilos.pixTopo}>
+                  <span className={estilos.pixBanco}>{evento.pagamento.banco}</span>
+                  <span className={estilos.pixRotulo}>Chave PIX</span>
+                </div>
+                <p className={estilos.pixChave}>{evento.pagamento.pix}</p>
+                <button
+                  type="button"
+                  className={`${estilos.botaoCopiar} ${copiado ? estilos.botaoCopiarCopiado : ""}`}
+                  onClick={copiarPix}
+                >
+                  {copiado ? (
+                    <>
+                      <Check size={15} />
+                      Copiado!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={15} />
+                      Copiar chave PIX
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
-          </div>
+          )}
+
+          {evento.whatsapp && (
+            <div className={estilos.secaoContato}>
+              <div className={estilos.secaoTituloWrapper}>
+                <span className={estilos.secaoTitulo}>
+                  Inscrições e mais informações
+                </span>
+                <div className={estilos.linha} />
+              </div>
+              <a
+                href={`https://wa.me/${evento.whatsapp}?text=${encodeURIComponent(
+                  `Olá! Quero saber mais sobre o ${evento.nome}.`,
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={estilos.botaoSaibaMais}
+              >
+                <MessageCircle size={17} />
+                Saiba mais no WhatsApp
+              </a>
+            </div>
+          )}
 
           {evento.observacoes.length > 0 && (
             <div className={estilos.secaoObs}>

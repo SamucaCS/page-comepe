@@ -12,10 +12,13 @@ export function PagamentoGqm({ evento }: Props) {
   const { pagamento } = evento;
 
   function copiarPix() {
+    if (!pagamento) return;
     navigator.clipboard.writeText(pagamento.pix);
     setCopiado(true);
     setTimeout(() => setCopiado(false), 3000);
   }
+
+  if (!pagamento) return null;
 
   return (
     <section id="pagamento" className={estilos.secao}>

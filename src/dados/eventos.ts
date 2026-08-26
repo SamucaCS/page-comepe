@@ -15,6 +15,11 @@ export interface Pagamento {
   titular: string;
 }
 
+export interface Parcelamento {
+  vezes: number;
+  valor: number;
+}
+
 export interface Evento {
   id: string;
   nome: string;
@@ -22,11 +27,15 @@ export interface Evento {
   data: string;
   dataCalendario?: string;
   local: string;
-  vagas: number;
+  vagas?: number;
   slug: string;
   destaque: boolean;
+  realizado?: boolean;
   lotes: Lote[];
-  pagamento: Pagamento;
+  valorAVista?: number;
+  parcelamento?: Parcelamento;
+  whatsapp?: string;
+  pagamento?: Pagamento;
   observacoes: string[];
 }
 
@@ -123,7 +132,8 @@ export const eventos: Evento[] = [
     local: "Chácara Bela Vista — Arujá",
     vagas: 0,
     slug: "daycamp",
-    destaque: true,
+    destaque: false,
+    realizado: true,
     lotes: [
       {
         id: "dc-l1",
@@ -142,5 +152,24 @@ export const eventos: Evento[] = [
       titular: "COMEPE",
     },
     observacoes: ["Valor de R$ 50,00 por pessoa", "Pagamento via PIX Bradesco"],
+  },
+  {
+    id: "encontro-a2",
+    nome: "Encontro A2",
+    descricao:
+      "Um final de semana especial para os casais da Rede A2, com momentos de renovação, ensino e comunhão em meio à natureza.",
+    data: "06 a 08 de Novembro de 2026",
+    dataCalendario: "2026-11-06",
+    local: "Socorro — SP",
+    slug: "encontro-a2",
+    destaque: false,
+    lotes: [],
+    valorAVista: 2350,
+    parcelamento: { vezes: 12, valor: 234.98 },
+    whatsapp: "5511982252401",
+    observacoes: [
+      "Vagas limitadas",
+      "Fale conosco pelo WhatsApp para mais informações e inscrições",
+    ],
   },
 ];

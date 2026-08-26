@@ -12,6 +12,12 @@ export interface EquipeCulto {
   membros: Membro[];
 }
 
+export interface EventoRelacionado {
+  nome: string;
+  descricao: string;
+  link: string;
+}
+
 export interface Culto {
   id: string;
   nome: string;
@@ -24,6 +30,7 @@ export interface Culto {
   responsavel: Membro;
   membros: Membro[];
   equipes?: EquipeCulto[];
+  eventoRelacionado?: EventoRelacionado;
 }
 
 export const cultos: Culto[] = [
@@ -151,12 +158,32 @@ export const cultos: Culto[] = [
     descricaoCompleta:
       "A Rede de Casais é o encontro mensal dos casais da COMEPE. Através de dinâmicas, estudos bíblicos e momentos de comunhão, fortalecemos os laços matrimoniais e construímos famílias baseadas nos princípios de Deus.",
     slug: "rede-casais",
+    foto: "/equipe_casal_a2.JPG",
     responsavel: {
       id: "r3",
       nome: "Thiago e Tamires",
-      funcao: "Líderes de Casais",
+      funcao: "Coordenação",
     },
     membros: [],
+    eventoRelacionado: {
+      nome: "Encontro A2",
+      descricao:
+        "O encontro de casais da nossa rede. Saiba mais e garanta sua vaga.",
+      link: "/eventos/encontro-a2",
+    },
+    equipes: [
+      {
+        id: "eq-casais",
+        nome: "Equipe",
+        descricao: "Equipe da Rede de Casais A2",
+        link: null,
+        membros: [
+          { id: "rc1", nome: "Anderson e Shirlene", funcao: "Casal" },
+          { id: "rc2", nome: "Luiz e Bruna", funcao: "Casal" },
+          { id: "rc3", nome: "Marco e Cristina", funcao: "Casal" },
+        ],
+      },
+    ],
   },
   {
     id: "rede-homens",

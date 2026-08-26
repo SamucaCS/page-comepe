@@ -194,6 +194,36 @@
   color: var(--cor-azul-profundo);
 }
 
+.cardImagemRealizada {
+  filter: grayscale(0.6);
+  opacity: 0.75;
+}
+
+.badgeRealizado {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 100px;
+  padding: 0.3rem 0.8rem;
+  z-index: 2;
+}
+
+.badgeRealizadoTexto {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+}
+
+.cardRodapeSemVagas {
+  justify-content: flex-end;
+}
+
 .cardCorpo {
   padding: 1.75rem;
   display: flex;

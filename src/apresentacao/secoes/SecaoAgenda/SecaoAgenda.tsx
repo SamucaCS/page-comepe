@@ -174,18 +174,26 @@ export function SecaoAgenda() {
                 to={`/eventos/${evento.slug}`}
                 className={estilos.card}
               >
-                <div className={estilos.cardImagem}>
+                <div
+                  className={`${estilos.cardImagem} ${evento.realizado ? estilos.cardImagemRealizada : ""}`}
+                >
                   <div className={estilos.cardImagemDecorado}>
                     <div className={estilos.cardImagemCirculo1} />
                     <div className={estilos.cardImagemCirculo2} />
                   </div>
                   <span className={estilos.cardImagemNome}>{evento.nome}</span>
                   <div className={estilos.cardImagemOverlay} />
-                  {evento.destaque && (
-                    <div className={estilos.badgeDestaque}>
-                      <div className={estilos.badgeDestaquePonto} />
-                      <span className={estilos.badgeDestaqueTexto}>Em destaque</span>
+                  {evento.realizado ? (
+                    <div className={estilos.badgeRealizado}>
+                      <span className={estilos.badgeRealizadoTexto}>Realizado</span>
                     </div>
+                  ) : (
+                    evento.destaque && (
+                      <div className={estilos.badgeDestaque}>
+                        <div className={estilos.badgeDestaquePonto} />
+                        <span className={estilos.badgeDestaqueTexto}>Em destaque</span>
+                      </div>
+                    )
                   )}
                 </div>
                 <div className={estilos.cardCorpo}>
@@ -201,11 +209,19 @@ export function SecaoAgenda() {
                       <span className={estilos.metaTexto}>{evento.local}</span>
                     </div>
                   </div>
-                  <div className={estilos.cardRodape}>
-                    <div className={estilos.vagasInfo}>
-                      <span className={estilos.vagasNumero}>{evento.vagas}</span>
-                      <span className={estilos.vagasLabel}>vagas restantes</span>
-                    </div>
+                  <div
+                    className={`${estilos.cardRodape} ${evento.realizado || evento.vagas === undefined ? estilos.cardRodapeSemVagas : ""}`}
+                  >
+                    {evento.realizado ? (
+                      <span className={estilos.vagasLabel}>Evento realizado</span>
+                    ) : (
+                      evento.vagas !== undefined && (
+                        <div className={estilos.vagasInfo}>
+                          <span className={estilos.vagasNumero}>{evento.vagas}</span>
+                          <span className={estilos.vagasLabel}>vagas restantes</span>
+                        </div>
+                      )
+                    )}
                     <div className={estilos.cardSeta}>
                       <ArrowRight size={18} color="#ffffff" />
                     </div>

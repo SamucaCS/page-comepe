@@ -197,23 +197,6 @@ export const ministerios: Ministerio[] = [
     ],
   },
   {
-    id: "casais",
-    nome: "Rede de Casais",
-    descricao:
-      "Ministério que fortalece os laços matrimoniais através de encontros, retiros e aconselhamento bíblico para casais.",
-    descricaoCompleta:
-      "A Rede de Casais da COMEPE existe para fortalecer os matrimônios e famílias da nossa comunidade. Através de encontros, retiros e aconselhamento baseado na Palavra de Deus, ajudamos os casais a construírem relacionamentos sólidos, saudáveis e com propósito eterno.",
-    icone: "HandHeart",
-    publico: "Casais",
-    slug: "casais",
-    responsavel: {
-      id: "r6",
-      nome: "Thiago e Tamires",
-      funcao: "Líderes de Casais",
-    },
-    membros: [],
-  },
-  {
     id: "intercessao",
     nome: "Intercessão",
     descricao:
@@ -245,6 +228,7 @@ export const ministerios: Ministerio[] = [
     icone: "BookOpen",
     publico: "12 Discípulos do Apóstolo Joel",
     slug: "pastoral",
+    foto: "/equipe_pastoral.JPG",
     responsavel: {
       id: "r8",
       nome: "Apóstolo Joel Motta Carvalho",
@@ -280,8 +264,12 @@ export const ministerios: Ministerio[] = [
     icone: "Eye",
     publico: "Pessoas com deficiência visual",
     slug: "asher",
+    foto: "/fotos_asher.JPG",
     responsavel: { id: "r11", nome: "Silvia", funcao: "Líder" },
-    membros: [],
+    membros: [
+      { id: "ash1", nome: "Pastora Maria", funcao: "Coordenação" },
+      { id: "ash2", nome: "Vanessa", funcao: "Coordenação" },
+    ],
   },
   {
     id: "wake-fotos",

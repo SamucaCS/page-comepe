@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarHeart } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { cultos } from "../../../dados/cultos";
 import { Cabecalho } from "../../componentes/Cabecalho/Cabecalho";
@@ -104,6 +104,27 @@ export function PaginaCulto() {
             </div>
           </div>
 
+          {culto.eventoRelacionado && (
+            <Link
+              to={culto.eventoRelacionado.link}
+              className={estilos.cardEventoRelacionado}
+            >
+              <div className={estilos.eventoRelacionadoIcone}>
+                <CalendarHeart size={22} color="#0a1f44" />
+              </div>
+              <div className={estilos.eventoRelacionadoInfo}>
+                <span className={estilos.eventoRelacionadoRotulo}>Evento</span>
+                <p className={estilos.eventoRelacionadoNome}>
+                  {culto.eventoRelacionado.nome}
+                </p>
+                <p className={estilos.eventoRelacionadoDescricao}>
+                  {culto.eventoRelacionado.descricao}
+                </p>
+              </div>
+              <ArrowRight size={18} color="#c9a84c" />
+            </Link>
+          )}
+
           {culto.equipes && culto.equipes.length > 0 && (
             <div className={estilos.secaoEquipes}>
               {culto.equipes.some((e) => e.link) && (
@@ -145,12 +166,14 @@ export function PaginaCulto() {
                 .filter((e) => !e.link && e.membros.length > 0)
                 .map((equipe) => (
                   <div key={equipe.id} className={estilos.blocoEquipe}>
-                    <div className={estilos.equipeHeader}>
-                      <h3 className={estilos.equipeNome}>{equipe.nome}</h3>
-                      <span className={estilos.equipeTotal}>
-                        {equipe.membros.length} membros
-                      </span>
-                    </div>
+                    {equipe.nome && (
+                      <div className={estilos.equipeHeader}>
+                        <h3 className={estilos.equipeNome}>{equipe.nome}</h3>
+                        <span className={estilos.equipeTotal}>
+                          {equipe.membros.length} membros
+                        </span>
+                      </div>
+                    )}
                     <div className={estilos.gridMembros}>
                       {equipe.membros.map((membro) => (
                         <div key={membro.id} className={estilos.cardMembro}>

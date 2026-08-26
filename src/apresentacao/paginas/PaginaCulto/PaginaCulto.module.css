@@ -353,6 +353,75 @@
   }
 }
 
+.cardEventoRelacionado {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 168, 76, 0.1),
+    rgba(201, 168, 76, 0.04)
+  );
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: var(--raio-medio);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transicao);
+}
+
+.cardEventoRelacionado:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-suave);
+  border-color: rgba(201, 168, 76, 0.6);
+}
+
+.eventoRelacionadoIcone {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--cor-dourado), var(--cor-dourado-claro));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventoRelacionadoInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.eventoRelacionadoRotulo {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-dourado);
+}
+
+.eventoRelacionadoNome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-azul-profundo);
+}
+
+.eventoRelacionadoDescricao {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .cardEventoRelacionado {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 .secaoEquipes {
   display: flex;
   flex-direction: column;

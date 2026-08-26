@@ -164,6 +164,24 @@
   color: var(--cor-dourado-claro);
 }
 
+.badgeRealizado {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.badgeRealizadoTexto {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
 .rotulo {
   font-size: 0.72rem;
   font-weight: 700;
@@ -271,6 +289,19 @@
   font-weight: 900;
   color: var(--cor-branco);
   line-height: 1;
+}
+
+.precoSufixo {
+  font-family: var(--fonte-corpo);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.precoParcelado {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cor-dourado-claro);
 }
 
 /* Lotes */
@@ -405,6 +436,36 @@
 
 .botaoCopiarCopiado {
   background: linear-gradient(135deg, #059669, #10b981);
+}
+
+/* Contato / Saiba mais */
+.secaoContato {
+  display: flex;
+  flex-direction: column;
+}
+
+.botaoSaibaMais {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--cor-dourado), var(--cor-dourado-claro));
+  color: var(--cor-azul-profundo);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.35);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.botaoSaibaMais:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.55);
 }
 
 /* Observações */
