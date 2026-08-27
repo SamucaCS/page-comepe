@@ -8,6 +8,7 @@ import { PaginaOracao } from "../apresentacao/paginas/PaginaOracao/PaginaOracao"
 import { PaginaMinisterio } from "../apresentacao/paginas/PaginaMinisterio/PaginaMinisterio";
 import { PaginaCulto } from "../apresentacao/paginas/PaginaCulto/PaginaCulto";
 import { Pagina404 } from "../apresentacao/paginas/Pagina404/Pagina404";
+import { PaginaEmConstrucao } from "../apresentacao/paginas/PaginaEmConstrucao/PaginaEmConstrucao";
 
 export function Rotas() {
   return (
@@ -20,6 +21,7 @@ export function Rotas() {
         <Route path="/ministerios/:slug" element={<PaginaMinisterio />} />
         <Route path="/cultos/:slug" element={<PaginaCulto />} />
         <Route path="/oracao" element={<PaginaOracao />} />
+        <Route path="/celulas" element={<PaginaEmConstrucao />} />
         <Route path="/admin" element={<PaginaAdmin />} />
         <Route path="*" element={<Pagina404 />} />
       </Routes>
