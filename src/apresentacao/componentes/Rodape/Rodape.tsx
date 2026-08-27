@@ -1,4 +1,3 @@
-import { Cross } from "lucide-react";
 import { Link } from "react-router-dom";
 import estilos from "./Rodape.module.css";
 
@@ -24,9 +23,11 @@ export function Rodape() {
       <div className={estilos.inner}>
         <div className={estilos.colLogo}>
           <Link to="/" className={estilos.logo}>
-            <div className={estilos.logoIcone}>
-              <Cross size={20} color="#0a1f44" strokeWidth={2.5} />
-            </div>
+            <img
+              src="/logo-comepe.png"
+              alt="Logo COMEPE"
+              className={estilos.logoImagem}
+            />
             <div className={estilos.logoTexto}>
               <span className={estilos.logoNome}>COMEPE</span>
               <span className={estilos.logoSubtitulo}>

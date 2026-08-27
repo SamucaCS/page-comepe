@@ -43,6 +43,7 @@ export const cultos: Culto[] = [
     descricaoCompleta:
       "O Culto de Domingo é o principal encontro semanal da COMEPE. Às 18h de cada domingo, nos reunimos para adorar a Deus, ouvir a Palavra pregada com unção e vivenciar a comunhão genuína entre irmãos. Um momento especial para toda a família.",
     slug: "culto-domingo",
+    foto: "/apostolos.JPG",
     responsavel: {
       id: "r1",
       nome: "Apóstolo Joel Motta Carvalho",
@@ -118,15 +119,15 @@ export const cultos: Culto[] = [
   {
     id: "rede-jovens",
     nome: "Rede de Jovens",
-    dia: "Sábado",
-    horario: "19:30",
+    dia: "Sábados (exceto 1º e último do mês)",
+    horario: "19:30 — 21:00",
     descricao:
       "Encontro especial para os jovens com louvor, palavra e comunhão.",
     descricaoCompleta:
-      "A Rede de Jovens é o encontro exclusivo da juventude da COMEPE. Um espaço seguro e animado onde os jovens podem adorar, aprender e crescer juntos na fé. Com louvor contemporâneo, palavra relevante e comunhão verdadeira.",
+      "A Rede de Jovens é o encontro exclusivo da juventude da COMEPE. Acontece todo sábado, das 19h30 às 21h, com exceção do primeiro e do último sábado do mês. Um espaço seguro e animado onde os jovens podem adorar, aprender e crescer juntos na fé. Com louvor contemporâneo, palavra relevante e comunhão verdadeira.",
     slug: "rede-jovens",
     foto: "/equipe_de_jovens.JPG",
-    responsavel: { id: "r2", nome: "Dãmarys", funcao: "Responsável" },
+    responsavel: { id: "r2", nome: "Damarys Carvalho", funcao: "Líder de Jovens" },
     membros: [],
     equipes: [
       {
@@ -146,13 +147,25 @@ export const cultos: Culto[] = [
           { id: "j9", nome: "Samuel", funcao: "Equipe" },
         ],
       },
+      {
+        id: "eq-jovens-louvor",
+        nome: "Louvor",
+        descricao: "Equipe de louvor da Rede de Jovens",
+        link: null,
+        membros: [
+          { id: "jl1", nome: "Damarys Carvalho", funcao: "Violão e Ministra de Louvor" },
+          { id: "jl2", nome: "Dani Vilela", funcao: "Baixo" },
+          { id: "jl3", nome: "Wilson Valle", funcao: "Guitarra" },
+          { id: "jl4", nome: "Samuel Carvalho", funcao: "Bateria" },
+        ],
+      },
     ],
   },
   {
     id: "rede-casais",
     nome: "Rede de Casais A2",
     dia: "Toda 3ª quinta-feira do mês",
-    horario: "20:00",
+    horario: "20:00 — 21:30",
     descricao:
       "Encontro para casais com ensinamentos que fortalecem o matrimônio.",
     descricaoCompleta:

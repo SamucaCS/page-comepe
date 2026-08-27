@@ -27,18 +27,10 @@
   text-decoration: none;
 }
 
-.logoIcone {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(
-    135deg,
-    var(--cor-dourado),
-    var(--cor-dourado-claro)
-  );
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logoImagem {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
 }
 

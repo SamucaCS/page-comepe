@@ -44,18 +44,10 @@
   width: fit-content;
 }
 
-.logoIcone {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(
-    135deg,
-    var(--cor-dourado),
-    var(--cor-dourado-claro)
-  );
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logoImagem {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
