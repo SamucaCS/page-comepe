@@ -33,6 +33,10 @@ export interface Evento {
   realizado?: boolean;
   lotes: Lote[];
   valorAVista?: number;
+  /** Até quando pagar (texto para mostrar, ex.: "quinta-feira, 29 de outubro"). */
+  prazoPagamento?: string;
+  /** O mesmo prazo curto, para o número do topo (ex.: "29/10"). */
+  prazoPagamentoCurto?: string;
   parcelamento?: Parcelamento;
   whatsapp?: string;
   pagamento?: Pagamento;
@@ -41,73 +45,27 @@ export interface Evento {
 
 export const eventos: Evento[] = [
   {
-    id: "gqm-2025",
+    id: "gqm-2026",
     nome: "GQM",
     descricao:
       "Um encontro transformador para toda a família. Venha viver dias de renovação, palavra e comunhão.",
-    data: "Fevereiro a Setembro de 2025",
+    data: "30 de Outubro a 02 de Novembro de 2026",
+    dataCalendario: "2026-10-30",
     local: "A definir",
     vagas: 10,
     slug: "gqm",
     destaque: true,
     lotes: [
       {
-        id: "l1",
-        mes: "Fevereiro",
-        quantidade: 8,
-        valor: 75,
-        status: "disponivel",
-      },
-      {
-        id: "l2",
-        mes: "Março",
-        quantidade: 7,
-        valor: 90,
-        status: "disponivel",
-      },
-      {
-        id: "l3",
-        mes: "Abril",
-        quantidade: 6,
-        valor: 110,
-        status: "disponivel",
-      },
-      {
-        id: "l4",
-        mes: "Maio",
-        quantidade: 5,
-        valor: 138,
-        status: "disponivel",
-      },
-      {
-        id: "l5",
-        mes: "Junho",
-        quantidade: 4,
-        valor: 180,
-        status: "disponivel",
-      },
-      {
-        id: "l6",
-        mes: "Julho",
-        quantidade: 3,
-        valor: 260,
-        status: "disponivel",
-      },
-      {
-        id: "l7",
-        mes: "Agosto",
-        quantidade: 2,
-        valor: 410,
-        status: "disponivel",
-      },
-      {
-        id: "l8",
-        mes: "Setembro",
+        id: "unico",
+        mes: "Inscrição",
         quantidade: 1,
-        valor: 900,
-        status: "proximo",
+        valor: 500,
+        status: "disponivel",
       },
     ],
+    prazoPagamento: "quinta-feira, 29 de outubro",
+    prazoPagamentoCurto: "29/10",
     pagamento: {
       banco: "Asaas",
       codigo: "461",
@@ -117,6 +75,7 @@ export const eventos: Evento[] = [
       titular: "Comunidade Evangélica Pentecostal",
     },
     observacoes: [
+      "Pagamento até quinta-feira, 29 de outubro",
       "Crianças de 00 a 03 anos não pagam",
       "Crianças de 04 a 06 anos pagam meia entrada",
       "Acelere sua inscrição e pagamento!",

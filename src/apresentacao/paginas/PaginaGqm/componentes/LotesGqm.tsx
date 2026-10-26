@@ -31,15 +31,17 @@ function IconeStatus({ status }: { status: string }) {
 }
 
 export function LotesGqm({ evento }: Props) {
+  const valorUnico = evento.lotes.length === 1;
   return (
     <section id="lotes" className={estilos.secao}>
       <div className={estilos.inner}>
         <div className={estilos.cabecalho}>
           <span className={estilos.rotulo}>Inscrições</span>
-          <h2 className={estilos.titulo}>Lotes e Valores</h2>
+          <h2 className={estilos.titulo}>{valorUnico ? "Valor da Inscrição" : "Lotes e Valores"}</h2>
           <p className={estilos.subtitulo}>
-            Os valores aumentam a cada mês. Garanta sua vaga no menor preço
-            disponível.
+            {valorUnico
+              ? `Pagamento até ${evento.prazoPagamento ?? "a data combinada"}. Garanta sua vaga!`
+              : "Os valores aumentam a cada mês. Garanta sua vaga no menor preço disponível."}
           </p>
           <div className={estilos.linha} />
         </div>
@@ -66,10 +68,16 @@ export function LotesGqm({ evento }: Props) {
 
               <div className={estilos.rodapeCartao}>
                 <span className={estilos.quantidade}>
-                  <span className={estilos.quantidadeDestaque}>
-                    {lote.quantidade}x
-                  </span>{" "}
-                  parcelas
+                  {lote.quantidade === 1 ? (
+                    <span className={estilos.quantidadeDestaque}>por pessoa</span>
+                  ) : (
+                    <>
+                      <span className={estilos.quantidadeDestaque}>
+                        {lote.quantidade}x
+                      </span>{" "}
+                      parcelas
+                    </>
+                  )}
                 </span>
                 <IconeStatus status={lote.status} />
               </div>

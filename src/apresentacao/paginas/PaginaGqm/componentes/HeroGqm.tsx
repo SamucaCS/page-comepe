@@ -8,6 +8,7 @@ interface Props {
 }
 
 export function HeroGqm({ evento }: Props) {
+  const valorUnico = evento.lotes.length === 1;
   return (
     <section className={estilos.hero}>
       <div className={estilos.fundoDecorado}>
@@ -25,7 +26,7 @@ export function HeroGqm({ evento }: Props) {
 
         <div className={estilos.etiqueta}>
           <div className={estilos.ponto} />
-          <span className={estilos.etiquetaTexto}>Evento Especial 2025</span>
+          <span className={estilos.etiquetaTexto}>{evento.data}</span>
         </div>
 
         <h1 className={estilos.titulo}>
@@ -44,15 +45,24 @@ export function HeroGqm({ evento }: Props) {
           </div>
           <div className={estilos.divisor} />
           <div className={estilos.itemVaga}>
-            <span className={estilos.vagaNumero}>{evento.lotes.length}</span>
-            <span className={estilos.vagaLabel}>Lotes</span>
+            {valorUnico && evento.prazoPagamentoCurto ? (
+              <>
+                <span className={estilos.vagaNumero}>{evento.prazoPagamentoCurto}</span>
+                <span className={estilos.vagaLabel}>Pagar até</span>
+              </>
+            ) : (
+              <>
+                <span className={estilos.vagaNumero}>{evento.lotes.length}</span>
+                <span className={estilos.vagaLabel}>Lotes</span>
+              </>
+            )}
           </div>
           <div className={estilos.divisor} />
           <div className={estilos.itemVaga}>
             <span className={estilos.vagaNumero}>
               R${evento.lotes[0].valor}
             </span>
-            <span className={estilos.vagaLabel}>A partir de</span>
+            <span className={estilos.vagaLabel}>{valorUnico ? "Inscrição" : "A partir de"}</span>
           </div>
         </div>
 
